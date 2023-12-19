@@ -1,4 +1,5 @@
 import 'package:dino/constant/clr.dart';
+import 'package:dino/screen/otp_verification_screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -79,7 +80,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               backgroundColor: Clr.teal),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        OTPVerificationScreen()));
+                          },
                           child: Text(
                             "Send OTP",
                             style: TextStyle(color: Clr.white),

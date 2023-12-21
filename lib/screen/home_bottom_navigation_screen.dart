@@ -1,12 +1,15 @@
+import 'package:dino/constant/app_font.dart';
 import 'package:dino/constant/clr.dart';
+import 'package:dino/constant/directory.dart';
+
 import 'package:dino/screen/home_screen.dart';
 
 import 'package:dino/screen/map_screen.dart';
 import 'package:dino/screen/rave_screen.dart';
 import 'package:dino/screen/support_screen.dart';
 import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 class HomeBottomNavigationScreen extends StatefulWidget {
   const HomeBottomNavigationScreen({super.key});
@@ -18,77 +21,84 @@ class HomeBottomNavigationScreen extends StatefulWidget {
 
 class _HomeBottomNavigationScreenState
     extends State<HomeBottomNavigationScreen> {
-  final PersistentTabController _controller =
-      PersistentTabController(initialIndex: 0);
-  Color activeColor = Clr.teal;
-  Color inactiveColor = Clr.white;
+  int _selectedIndex = 0;
 
-  List<Widget> _buildScreens() {
-    return const [HomeScreen(), MapScreen(), RaveScreen(), SupportScreen()];
-  }
+  static const List<Widget> _widgetOptions = <Widget>[
+    HomeScreen(),
+    MapScreen(),
+    SupportScreen(),
+    RaveScreen()
+  ];
 
-  List<PersistentBottomNavBarItem> _navBarsItems() {
-    return [
-      PersistentBottomNavBarItem(
-          icon: Icon(CupertinoIcons.home),
-          title: ("Home"),
-          activeColorPrimary: activeColor,
-          inactiveColorPrimary: inactiveColor),
-      PersistentBottomNavBarItem(
-        icon: Icon(CupertinoIcons.map),
-        title: ("Map"),
-        activeColorPrimary: activeColor,
-        inactiveColorPrimary: inactiveColor,
-      ),
-      PersistentBottomNavBarItem(
-        icon: Icon(CupertinoIcons.group),
-        title: ("Rave"),
-        activeColorPrimary: activeColor,
-        inactiveColorPrimary: inactiveColor,
-      ),
-      PersistentBottomNavBarItem(
-        icon: Icon(CupertinoIcons.control),
-        title: ("Help"),
-        activeColorPrimary: activeColor,
-        inactiveColorPrimary: inactiveColor,
-      ),
-    ];
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return PersistentTabView(
-      context,
-      controller: _controller,
-      screens: _buildScreens(),
-      items: _navBarsItems(),
-      confineInSafeArea: true,
-      backgroundColor: Colors.black, // Default is Colors.white.
-      handleAndroidBackButtonPress: true, // Default is true.
-      resizeToAvoidBottomInset:
-          true, // This needs to be true if you want to move up the screen when keyboard appears. Default is true.
-      stateManagement: true, // Default is true.
-      hideNavigationBarWhenKeyboardShows:
-          true, // Recommended to set 'resizeToAvoidBottomInset' as true while using this argument. Default is true.
-      decoration: NavBarDecoration(
-        borderRadius: BorderRadius.circular(10.0),
-        colorBehindNavBar: Colors.white,
+    return Scaffold(
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
       ),
-      popAllScreensOnTapOfSelectedTab: true,
-      popActionScreens: PopActionScreensType.all,
-      itemAnimationProperties: const ItemAnimationProperties(
-        // Navigation Bar's items animation properties.
-        duration: Duration(milliseconds: 200),
-        curve: Curves.ease,
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Clr.white,
+        unselectedItemColor: Colors.grey,
+        selectedLabelStyle: const TextStyle(
+          color: Clr.grey,
+          fontSize: 12,
+          fontFamily: AppFont.montserrat,
+        ),
+        unselectedLabelStyle: const TextStyle(
+          color: Clr.grey,
+          fontSize: 12,
+          fontFamily: AppFont.montserrat,
+        ),
+        // fixedColor: Colors.white,
+        showUnselectedLabels: true,
+        showSelectedLabels: true,
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: SizedBox(
+              height: 30,
+              width: 44,
+              child: Image.asset(
+                Dir.logoIcon,
+                fit: BoxFit.cover,
+              ),
+            ),
+            label: 'Home',
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(
+              CupertinoIcons.map,
+              color: Clr.white,
+            ),
+            label: 'Map',
+          ),
+          BottomNavigationBarItem(
+            icon: SizedBox(
+              height: 30,
+              width: 44,
+              child: Image.asset(
+                Dir.supportIcon,
+                // fit: BoxFit.cover,
+              ),
+            ),
+            label: 'Support',
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(
+              Icons.groups_outlined,
+              color: Clr.white,
+            ),
+            label: 'Rave',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
       ),
-      screenTransitionAnimation: const ScreenTransitionAnimation(
-        // Screen transition animation on change of selected tab.
-        animateTabTransition: true,
-        curve: Curves.ease,
-        duration: Duration(milliseconds: 200),
-      ),
-      navBarStyle:
-          NavBarStyle.style6, // Choose the nav bar style with this property.
     );
   }
 }

@@ -1,6 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:dino/component/drawer_button.dart';
+import 'package:dino/component/app_drawer.dart';
+
+import 'package:dino/component/style.dart';
 import 'package:dino/constant/clr.dart';
+import 'package:dino/constant/directory.dart';
+import 'package:dino/constant/app_font.dart';
 import 'package:dino/constant/url.dart';
 
 import 'package:flutter/cupertino.dart';
@@ -38,40 +42,29 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ], // this will hide endDrawer hamburger icon
       ),
-      drawer: Drawer(
-        backgroundColor: Clr.black,
-        child: const Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-              height: 100,
-            ),
-            CustDrawerButton(),
-            CustDrawerButton(),
-            CustDrawerButton(),
-            CustDrawerButton()
-          ],
-        ),
-      ),
+      drawer: const AppDrawer(),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Container(
               alignment: Alignment.topLeft,
               padding: const EdgeInsets.only(top: 5, bottom: 5, left: 30),
-              child: Column(
+              child: const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       'Hello',
-                      style: TextStyle(fontSize: 18, color: Clr.white),
+                      style: TextStyle(
+                          fontSize: 24,
+                          color: Clr.white,
+                          fontFamily: AppFont.avenir),
                     ),
                     Text(
                       'Amjad Ali',
                       style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 24,
                           color: Clr.white,
+                          fontFamily: AppFont.avenir,
                           fontWeight: FontWeight.bold),
                     ),
                   ]),
@@ -85,20 +78,37 @@ class _HomeScreenState extends State<HomeScreen> {
                       // color: Colors.,
                       image: DecorationImage(
                     image: AssetImage(
-                      "assets/image/bike_image1.png",
+                      Dir.bikeImage1,
                     ),
                     fit: BoxFit.cover,
                   )),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          colors: [
+                            Clr.black.withOpacity(0.4),
+                            Clr.black.withOpacity(0.1),
+                            Clr.black.withOpacity(0.4),
+                          ],
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          stops: const [0.1, 1, 0.1]),
+                    ),
+                  ),
                 ),
                 const Text(
                   // assets/image
-                  "Bike Name",
+                  "OUR BIKE NAME",
                   style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      fontStyle: FontStyle.normal),
+                    fontFamily: AppFont.nebula,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
                 )
               ],
+            ),
+            const SizedBox(
+              height: 15,
             ),
             Column(children: [
               SizedBox(
@@ -110,7 +120,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       onPressed: () {
                         carouselController.previousPage();
                       },
-                      icon: const Icon(CupertinoIcons.left_chevron),
+                      icon: const Icon(
+                        CupertinoIcons.left_chevron,
+                        size: 15,
+                      ),
                     ),
                     Expanded(
                       child: CarouselSlider(
@@ -126,7 +139,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Center(
                                 child: Text(
                               mode,
-                              style: TextStyle(letterSpacing: 30),
+                              style: const TextStyle(
+                                  letterSpacing: 30,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 14,
+                                  fontFamily: AppFont.montserrat),
                             )),
                           );
                         }).toList(),
@@ -138,7 +155,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           // use the controller to change the current page
                           carouselController.nextPage();
                         },
-                        icon: Icon(CupertinoIcons.right_chevron),
+                        icon: const Icon(
+                          CupertinoIcons.right_chevron,
+                          size: 15,
+                        ),
                       ),
                     ),
                   ],
@@ -163,16 +183,22 @@ class _HomeScreenState extends State<HomeScreen> {
                             Text(
                               "80",
                               style: TextStyle(
-                                fontSize: 20,
-                                // fontWeight: FontWeight.bold
-                              ),
+                                  fontSize: 18, fontFamily: AppFont.montserrat),
                             ),
-                            Text("%")
+                            Padding(
+                              padding: EdgeInsets.only(bottom: 2),
+                              child: Text(
+                                "%",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    fontFamily: AppFont.montserrat),
+                              ),
+                            )
                           ],
                         ),
                         Text(
                           "Charge",
-                          style: TextStyle(color: Clr.grey),
+                          style: Style.fadeTextStyle(),
                         )
                       ],
                     ),
@@ -187,16 +213,22 @@ class _HomeScreenState extends State<HomeScreen> {
                             Text(
                               "120",
                               style: TextStyle(
-                                fontSize: 20,
-                                // fontWeight: FontWeight.bold
-                              ),
+                                  fontSize: 18, fontFamily: AppFont.montserrat),
                             ),
-                            Text("km")
+                            Padding(
+                              padding: EdgeInsets.only(bottom: 2),
+                              child: Text(
+                                "km",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    fontFamily: AppFont.montserrat),
+                              ),
+                            )
                           ],
                         ),
                         Text(
                           "Range",
-                          style: TextStyle(color: Clr.grey),
+                          style: Style.fadeTextStyle(),
                         )
                       ],
                     ),
@@ -214,18 +246,24 @@ class _HomeScreenState extends State<HomeScreen> {
                                 "1250",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 20,
-                                  // fontWeight: FontWeight.bold,
-                                ),
+                                    fontSize: 18,
+                                    fontFamily: AppFont.montserrat),
                               ),
                             ),
-                            Text("km")
+                            Padding(
+                              padding: EdgeInsets.only(bottom: 2),
+                              child: Text(
+                                "km",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    fontFamily: AppFont.montserrat),
+                              ),
+                            )
                           ],
                         ),
                         Text(
                           "Total Distance",
-                          style: TextStyle(color: Clr.grey),
+                          style: Style.fadeTextStyle(),
                         )
                       ],
                     ),
@@ -246,10 +284,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Nearest charging station"),
                     Text(
-                      "1 Available",
-                      style: TextStyle(fontSize: 12, color: Clr.grey),
+                      "Nearest charging station",
+                      style: Style.fadeTextStyle(fontWeight: FontWeight.w900),
+                    ),
+                    Text(
+                      "5 Available",
+                      style: Style.fadeTextStyle(),
                     )
                   ],
                 ),
@@ -257,7 +298,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Container(
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: NetworkImage(UrlData.mapImage))),
+                            image: NetworkImage(AppUrl.mapImage))),
                   ),
                 )
               ]),

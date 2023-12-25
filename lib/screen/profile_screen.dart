@@ -56,7 +56,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           backgroundColor: Clr.black,
                           percent: 0.6,
                           circularStrokeCap: CircularStrokeCap.round,
-                          progressColor: Colors.teal,
+                          progressColor: Clr.teal,
                         ),
                       ],
                     )),
@@ -70,7 +70,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         style: TextStyle(
                             fontSize: 10,
                             fontFamily: AppFont.montserrat,
-                            color: Clr.teal2),
+                            color: Clr.teal),
                       ),
                       const Text(
                         "Amjad Ali",
@@ -94,16 +94,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Align(
                   alignment: Alignment.centerRight,
                   child: Center(
-                    child: Container(
-                      // color: Colors.blue,
-                      child: IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.edit_outlined,
-                            color: Clr.teal2,
-                            size: 30,
-                          )),
-                    ),
+                    child: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.edit_outlined,
+                          color: Clr.teal,
+                          size: 30,
+                        )),
                   ),
                 )
               ],
@@ -176,7 +173,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 style: TextStyle(
                                     fontFamily: AppFont.montserrat,
                                     fontSize: 12,
-                                    color: Clr.tealOriginal,
+                                    color: Clr.teal,
                                     fontWeight: FontWeight.bold),
                               ),
                               Text(
@@ -207,23 +204,36 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text("Basic Information"),
+                    Text(
+                      "Basic Information",
+                      style: Style.headingTextStyle(),
+                    ),
                     IconButton(
-                        onPressed: () {}, icon: const Icon(Icons.edit_outlined))
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.edit_outlined,
+                          color: Clr.teal,
+                        ))
                   ],
                 ),
-                const Row(
+                Row(
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Email ID:"),
-                        Text("Contact no:"),
-                        Text("Model:"),
-                        Text("Emergency contact:"),
+                        Text(
+                          "Email ID:",
+                          style: Style.fadeTextStyle(color: Clr.white1),
+                        ),
+                        Text("Contact no:",
+                            style: Style.fadeTextStyle(color: Clr.white1)),
+                        Text("Model:",
+                            style: Style.fadeTextStyle(color: Clr.white1)),
+                        Text("Emergency contact:",
+                            style: Style.fadeTextStyle(color: Clr.white1)),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     Expanded(
@@ -231,10 +241,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("someone@email.com"),
-                          Text("7260004480"),
-                          Text("RapteeT30:"),
-                          Text("8888458928"),
+                          Text(
+                            "someone@email.com",
+                            style: Style.fadeTextStyle(),
+                          ),
+                          Text(
+                            "7260004480",
+                            style: Style.fadeTextStyle(),
+                          ),
+                          Text(
+                            "RapteeT30:",
+                            style: Style.fadeTextStyle(),
+                          ),
+                          Text(
+                            "8888458928",
+                            style: Style.fadeTextStyle(),
+                          ),
                         ],
                       ),
                     )
@@ -253,7 +275,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text("Insurance"),
+                    Text(
+                      "Insurance",
+                      style: Style.headingTextStyle(),
+                    ),
                     SizedBox(
                       height: 20,
                       child: ElevatedButton(
@@ -271,38 +296,56 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 const SizedBox(
                   height: 20,
                 ),
-                const Row(
+                Row(
                   children: [
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Type"),
-                          Text("Something Random"),
+                          Text(
+                            "Type",
+                            style: Style.fadeTextStyle(color: Clr.white1),
+                          ),
+                          Text(
+                            "Something Random",
+                            style: Style.fadeTextStyle(),
+                          ),
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Issue date"),
-                          Text("04/11/2023"),
+                          Text(
+                            "Issue date",
+                            style: Style.fadeTextStyle(color: Clr.white1),
+                          ),
+                          Text(
+                            "04/11/2023",
+                            style: Style.fadeTextStyle(),
+                          ),
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Expiry date"),
-                          Text("03/11/2024"),
+                          Text(
+                            "Expiry date",
+                            style: Style.fadeTextStyle(color: Clr.white1),
+                          ),
+                          Text(
+                            "03/11/2024",
+                            style: Style.fadeTextStyle(),
+                          ),
                         ],
                       ),
                     ),
@@ -316,7 +359,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       onPressed: () {},
                       child: Text(
                         "Renew",
-                        style: TextStyle(color: Clr.white),
+                        style: Style.fadeTextStyle(color: Clr.white),
                       )),
                 )
               ],
@@ -332,7 +375,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text("Subscription"),
+                    Text(
+                      "Subscription",
+                      style: Style.headingTextStyle(color: Clr.white),
+                    ),
                     SizedBox(
                       height: 20,
                       child: ElevatedButton(
@@ -350,38 +396,56 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 const SizedBox(
                   height: 20,
                 ),
-                const Row(
+                Row(
                   children: [
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Type"),
-                          Text("Something Random"),
+                          Text(
+                            "Type",
+                            style: Style.fadeTextStyle(color: Clr.white1),
+                          ),
+                          Text(
+                            "Something Random",
+                            style: Style.fadeTextStyle(),
+                          ),
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Issue date"),
-                          Text("04/11/2023"),
+                          Text(
+                            "Issue date",
+                            style: Style.fadeTextStyle(color: Clr.white1),
+                          ),
+                          Text(
+                            "04/11/2023",
+                            style: Style.fadeTextStyle(),
+                          ),
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Expiry date"),
-                          Text("03/11/2024"),
+                          Text(
+                            "Expiry date",
+                            style: Style.fadeTextStyle(color: Clr.white1),
+                          ),
+                          Text(
+                            "03/11/2024",
+                            style: Style.fadeTextStyle(),
+                          ),
                         ],
                       ),
                     ),
@@ -394,8 +458,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ElevatedButton.styleFrom(backgroundColor: Clr.teal2),
                       onPressed: () {},
                       child: Text(
-                        "upgrage",
-                        style: TextStyle(color: Clr.white),
+                        "Upgrage",
+                        style: Style.fadeTextStyle(color: Clr.white),
                       )),
                 )
               ],
@@ -411,37 +475,67 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text("Insurance"),
-                    IconButton(
-                        onPressed: () {}, icon: const Icon(Icons.edit_outlined))
-                  ],
-                ),
-                const Row(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Email ID:"),
-                        Text("Contact no:"),
-                        Text("Model:"),
-                        Text("Emergency contact:"),
-                      ],
+                    Text(
+                      "Ride Insights",
+                      style: Style.headingTextStyle(),
                     ),
                     SizedBox(
-                      width: 20,
+                      height: 20,
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Clr.grey.withOpacity(0.2)),
+                        child: const Text(
+                          "View all",
+                          style: TextStyle(fontSize: 12, color: Clr.white),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Avg Score",
+                          style: Style.fadeTextStyle(color: Clr.white1),
+                        ),
+                        Text(
+                          "9",
+                          style: Style.appTitleTextStyle(
+                              color: Clr.teal, fontSize: 28),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      width: 10,
                     ),
                     Expanded(
                       flex: 2,
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Text("someone@email.com"),
-                          Text("7260004480"),
-                          Text("RapteeT30:"),
-                          Text("8888458928"),
+                          Text(
+                            "Efficiancy",
+                            style: Style.fadeTextStyle(color: Clr.white1),
+                          ),
+                          Text(
+                            "85%",
+                            style: Style.appTitleTextStyle(
+                                color: Clr.teal, fontSize: 28),
+                          ),
                         ],
                       ),
-                    )
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(flex: 2, child: Image.network(AppUrl.barImage))
                   ],
                 )
               ],

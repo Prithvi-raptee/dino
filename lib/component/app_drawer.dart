@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:dino/component/drawer_button.dart';
 import 'package:dino/constant/app_font.dart';
 import 'package:dino/constant/clr.dart';
+import 'package:dino/screen/charging_screen.dart';
 import 'package:dino/screen/profile_screen.dart';
 
 import 'package:flutter/material.dart';
@@ -49,7 +50,12 @@ class AppDrawer extends StatelessWidget {
             icon: const Icon(
               Icons.home,
             ),
-            onPress: () {},
+            onPress: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ChargingScreen()));
+            },
             title: "Charging",
           ),
           CustDrawerButton(

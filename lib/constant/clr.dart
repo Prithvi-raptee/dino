@@ -14,4 +14,6 @@ class Clr {
   static const Color grey = Color(0xFF565656);
   static const Color grey1 = Color(0xFF111111);
   static const Color grey2 = Color(0xFF1E1E1E);
+
+  static const Color red = Colors.red;
 }

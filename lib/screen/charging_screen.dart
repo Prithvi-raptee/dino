@@ -1,7 +1,8 @@
 import 'package:dino/component/style.dart';
 import 'package:dino/constant/app_font.dart';
 import 'package:dino/constant/clr.dart';
-import 'package:dino/screen/profile_screen.dart';
+
+import 'package:dino/screen/qr_scanner_screen.dart';
 import 'package:flutter/material.dart';
 
 class ChargingScreen extends StatefulWidget {
@@ -72,7 +73,7 @@ class _ChargingScreenState extends State<ChargingScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const ProfileScreen()));
+                          builder: (context) => const QRScannerScreen()));
                 },
                 icon: const Icon(
                   Icons.qr_code,

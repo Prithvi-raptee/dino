@@ -1,10 +1,14 @@
 import 'package:dino/component/style.dart';
 import 'package:dino/constant/app_font.dart';
 import 'package:dino/constant/clr.dart';
+
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class ChargerConnectedScreen extends StatelessWidget {
-  const ChargerConnectedScreen({super.key});
+  ChargerConnectedScreen({super.key});
+
+  bool homeCharger = false;
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +36,35 @@ class ChargerConnectedScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           // mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(
+              height: 50,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: Text(
+                      homeCharger ? "Home" : "External",
+                      style: Style.fadeTextStyle(
+                          fontSize: 20,
+                          fontFamily: AppFont.avenir,
+                          fontWeight: FontWeight.bold,
+                          color: Clr.white),
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      Text("Charging Guidline",
+                          style: Style.fadeTextStyle(
+                              color: Clr.white, fontSize: 10)),
+                      const Icon(Icons.arrow_drop_down)
+                    ],
+                  )
+                ],
+              ),
+            ),
             const SizedBox(
-              height: 60,
+              height: 40,
             ),
             Align(
               alignment: Alignment.center,
@@ -70,144 +101,157 @@ class ChargerConnectedScreen extends StatelessWidget {
             const SizedBox(
               height: 50,
             ),
-            Container(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.all(13),
-                          margin: const EdgeInsets.all(3),
-                          decoration: BoxDecoration(
-                              color: Clr.grey.withOpacity(0.3),
-                              borderRadius: BorderRadius.circular(20)),
-                          height: 120,
-                          width: 120,
-                          child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
+            Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(13),
+                    margin: const EdgeInsets.all(3),
+                    decoration: BoxDecoration(
+                        // color: Clr.grey.withOpacity(0.3),
+                        borderRadius: BorderRadius.circular(20)),
+                    height: 120,
+                    // width: 120,
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              if (!homeCharger)
                                 const Icon(
-                                  Icons.share,
-                                  size: 30,
+                                  Icons.flash_on,
+                                  color: Clr.teal,
                                 ),
-                                Expanded(
-                                    child: Center(
-                                        child: Text(
-                                  "Find my station",
-                                  textAlign: TextAlign.left,
-                                  style: Style.headingTextStyle(
-                                      fontSize: 16,
-                                      fontFamily: AppFont.montserrat),
-                                )))
-                              ]),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.all(5),
-                          padding: const EdgeInsets.all(13),
-                          decoration: BoxDecoration(
-                              color: Clr.grey.withOpacity(0.3),
-                              borderRadius: BorderRadius.circular(20)),
-                          height: 120,
-                          // width: 120,
-                          child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Icon(
-                                  Icons.share,
-                                  size: 30,
-                                ),
-                                Expanded(
-                                    child: Center(
-                                        child: Text(
-                                  "Find my station",
-                                  textAlign: TextAlign.left,
-                                  style: Style.headingTextStyle(
-                                      fontSize: 16,
-                                      fontFamily: AppFont.montserrat),
-                                )))
-                              ]),
-                        )
-                      ],
-                    ),
-                    Container(
-                      margin: const EdgeInsets.all(5),
-                      padding: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                          color: Clr.grey.withOpacity(0.3),
-                          borderRadius: BorderRadius.circular(20)),
-                      // height: 50,
-                      width: 250,
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              "Manhatta",
-                              style: Style.headingTextStyle(
-                                  fontSize: 20,
-                                  fontFamily: AppFont.avenir,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              "GSGHD325435",
-                              style: Style.fadeTextStyle(
-                                  color: Clr.grey,
-                                  fontSize: 14,
-                                  fontFamily: AppFont.montserrat),
-                            ),
-                            const SizedBox(
-                              height: 15,
-                            ),
-                            Text(
-                              "Charging Duration",
-                              style: Style.fadeTextStyle(
-                                  color: Clr.white1.withOpacity(0.7),
-                                  fontSize: 14,
-                                  fontFamily: AppFont.montserrat),
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              "20:20:00",
-                              style: Style.headingTextStyle(
-                                  fontSize: 20,
-                                  fontFamily: AppFont.avenir,
-                                  fontWeight: FontWeight.w900),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Align(
-                              alignment: Alignment.center,
-                              child: SizedBox(
-                                height: 30,
-                                child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                        shape: const RoundedRectangleBorder(),
-                                        backgroundColor: Clr.red),
-                                    onPressed: () {},
-                                    child: Text(
-                                      "Disconnected",
-                                      style: Style.fadeTextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 12,
-                                          color: Clr.white),
-                                    )),
+                              Text(
+                                "Charging",
+                                textAlign: TextAlign.left,
+                                style: Style.headingTextStyle(
+                                    fontSize: 20,
+                                    fontFamily: AppFont.avenir,
+                                    fontWeight: FontWeight.w900),
                               ),
-                            )
-                          ]),
-                    )
-                  ]),
-            )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          Text(
+                            "00:30:30 remaining",
+                            style: Style.fadeTextStyle(fontSize: 16),
+                          )
+                        ]),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.all(5),
+                    padding: const EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                        color: Clr.grey1,
+                        borderRadius: BorderRadius.circular(20)),
+                    // height: 50,
+                    // width: 250,
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            "Manhatta",
+                            style: Style.headingTextStyle(
+                                fontSize: 20,
+                                fontFamily: AppFont.avenir,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            "GSGHD325435",
+                            style: Style.fadeTextStyle(
+                                color: Clr.grey,
+                                fontSize: 14,
+                                fontFamily: AppFont.montserrat),
+                          ),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Charging Duration",
+                                    style: Style.fadeTextStyle(
+                                        color: Clr.white1,
+                                        fontSize: 14,
+                                        fontFamily: AppFont.montserrat),
+                                  ),
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    "20:20:00",
+                                    style: Style.headingTextStyle(
+                                        fontSize: 20,
+                                        fontFamily: AppFont.avenir,
+                                        fontWeight: FontWeight.w900),
+                                  ),
+                                ],
+                              ),
+                              if (!homeCharger)
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "To pay:",
+                                      style: Style.fadeTextStyle(
+                                          color: Clr.white1,
+                                          fontSize: 14,
+                                          fontFamily: AppFont.montserrat),
+                                    ),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text(
+                                      "\$15",
+                                      style: Style.headingTextStyle(
+                                          fontSize: 20,
+                                          color: Clr.teal,
+                                          fontFamily: AppFont.avenir,
+                                          fontWeight: FontWeight.w900),
+                                    ),
+                                  ],
+                                ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Align(
+                            alignment: Alignment.center,
+                            child: SizedBox(
+                              height: 30,
+                              child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      shape: const RoundedRectangleBorder(),
+                                      backgroundColor: Clr.red),
+                                  onPressed: () {},
+                                  child: Text(
+                                    "Disconnected",
+                                    style: Style.fadeTextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 12,
+                                        color: Clr.white),
+                                  )),
+                            ),
+                          )
+                        ]),
+                  )
+                ])
           ],
         ),
       ),

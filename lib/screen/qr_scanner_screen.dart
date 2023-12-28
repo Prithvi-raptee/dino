@@ -56,7 +56,7 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
                 Padding(
                   padding: const EdgeInsets.only(left: 20),
                   child: Text(
-                    "QR SCAN",
+                    "QR Scan",
                     style: Style.fadeTextStyle(
                         fontSize: 20,
                         fontFamily: AppFont.avenir,
@@ -197,7 +197,7 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                const ChargerConnectedScreen()));
+                                                ChargerConnectedScreen()));
                                   },
                                   child: const Text(
                                     "Connect",

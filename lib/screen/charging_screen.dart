@@ -1,6 +1,7 @@
 import 'package:dino/component/style.dart';
 import 'package:dino/constant/app_font.dart';
 import 'package:dino/constant/clr.dart';
+import 'package:dino/screen/charging_history.dart';
 
 import 'package:dino/screen/qr_scanner_screen.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +52,7 @@ class _ChargingScreenState extends State<ChargingScreen> {
             onTap: () {
               Navigator.pop(context);
             },
-            child: Icon(Icons.arrow_back_ios)),
+            child: const Icon(Icons.arrow_back_ios)),
         centerTitle: true,
         backgroundColor: Clr.black,
         title: Text(
@@ -119,32 +120,41 @@ class _ChargingScreenState extends State<ChargingScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
-                        padding: const EdgeInsets.all(13),
-                        margin: const EdgeInsets.all(3),
-                        decoration: BoxDecoration(
-                            color: Clr.grey.withOpacity(0.3),
-                            borderRadius: BorderRadius.circular(20)),
-                        height: 120,
-                        width: 120,
-                        child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Icon(
-                                Icons.share,
-                                size: 30,
-                              ),
-                              Expanded(
-                                  child: Center(
-                                      child: Text(
-                                "Find my station",
-                                textAlign: TextAlign.left,
-                                style: Style.headingTextStyle(
-                                    fontSize: 16,
-                                    fontFamily: AppFont.montserrat),
-                              )))
-                            ]),
+                      InkWell(
+                        onTap: () {
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) =>
+                          //             const ChargingScreen()));
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.all(13),
+                          margin: const EdgeInsets.all(3),
+                          decoration: BoxDecoration(
+                              color: Clr.grey.withOpacity(0.3),
+                              borderRadius: BorderRadius.circular(20)),
+                          height: 120,
+                          width: 120,
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Icon(
+                                  Icons.location_on_outlined,
+                                  size: 30,
+                                ),
+                                Expanded(
+                                    child: Center(
+                                        child: Text(
+                                  "Find my station",
+                                  textAlign: TextAlign.left,
+                                  style: Style.headingTextStyle(
+                                      fontSize: 16,
+                                      fontFamily: AppFont.montserrat),
+                                )))
+                              ]),
+                        ),
                       ),
                       Container(
                         margin: const EdgeInsets.all(5),
@@ -159,19 +169,87 @@ class _ChargingScreenState extends State<ChargingScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               const Icon(
-                                Icons.share,
+                                Icons.bookmark_border,
                                 size: 30,
                               ),
                               Expanded(
                                   child: Center(
                                       child: Text(
-                                "Find my station",
+                                "Book my slot",
                                 textAlign: TextAlign.left,
                                 style: Style.headingTextStyle(
                                     fontSize: 16,
                                     fontFamily: AppFont.montserrat),
                               )))
                             ]),
+                      )
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(13),
+                        margin: const EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                            color: Clr.grey.withOpacity(0.3),
+                            borderRadius: BorderRadius.circular(20)),
+                        height: 120,
+                        width: 120,
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Icon(
+                                Icons.bar_chart,
+                                size: 30,
+                              ),
+                              Expanded(
+                                  child: Center(
+                                      child: Text(
+                                "Charging Insight",
+                                textAlign: TextAlign.left,
+                                style: Style.headingTextStyle(
+                                    fontSize: 16,
+                                    fontFamily: AppFont.montserrat),
+                              )))
+                            ]),
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const ChargingHistory()));
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.all(5),
+                          padding: const EdgeInsets.all(13),
+                          decoration: BoxDecoration(
+                              color: Clr.grey.withOpacity(0.3),
+                              borderRadius: BorderRadius.circular(20)),
+                          height: 120,
+                          width: 120,
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Icon(
+                                  Icons.history,
+                                  size: 30,
+                                ),
+                                Expanded(
+                                    child: Center(
+                                        child: Text(
+                                  "Charging History",
+                                  textAlign: TextAlign.left,
+                                  style: Style.headingTextStyle(
+                                      fontSize: 16,
+                                      fontFamily: AppFont.montserrat),
+                                )))
+                              ]),
+                        ),
                       )
                     ],
                   ),

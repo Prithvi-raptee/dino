@@ -40,6 +40,11 @@ class Style {
   static TextStyle appTitleTextStyle(
           {double fontSize = 24,
           String fontFamily = AppFont.sen,
-          Color color = Clr.white}) =>
-      TextStyle(fontFamily: fontFamily, fontSize: fontSize, color: color);
+          Color color = Clr.white,
+          FontWeight fontWeight = FontWeight.normal}) =>
+      TextStyle(
+          fontFamily: fontFamily,
+          fontSize: fontSize,
+          color: color,
+          fontWeight: fontWeight);
 }

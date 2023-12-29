@@ -1,3 +1,4 @@
+import 'package:dino/component/barchart_widget.dart';
 import 'package:dino/component/style.dart';
 import 'package:dino/constant/app_font.dart';
 import 'package:dino/constant/clr.dart';
@@ -535,7 +536,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     const SizedBox(
                       width: 10,
                     ),
-                    Expanded(flex: 2, child: Image.network(AppUrl.barImage))
+                    Expanded(
+                        child: SizedBox(height: 100, child: BarChartSample2()))
                   ],
                 )
               ],

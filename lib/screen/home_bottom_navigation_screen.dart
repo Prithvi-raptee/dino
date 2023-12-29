@@ -23,7 +23,7 @@ class _HomeBottomNavigationScreenState
     extends State<HomeBottomNavigationScreen> {
   int _selectedIndex = 0;
 
-  static const List<Widget> _widgetOptions = <Widget>[
+  static List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     MapScreen(),
     SupportScreen(),

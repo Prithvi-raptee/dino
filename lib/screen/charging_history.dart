@@ -1,10 +1,11 @@
 import 'dart:math';
 
 import 'package:dino/component/appbar.dart';
+import 'package:dino/component/barchart_widget.dart';
 import 'package:dino/component/style.dart';
 import 'package:dino/constant/app_font.dart';
 import 'package:dino/constant/clr.dart';
-import 'package:dino/constant/url.dart';
+
 import 'package:flutter/material.dart';
 
 class ChargingHistory extends StatefulWidget {
@@ -168,10 +169,9 @@ class _ChargingHistoryState extends State<ChargingHistory> {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             height: 250,
             width: double.infinity,
-            child: Image.network(AppUrl.barImage),
-          ),
-          const SizedBox(
-            height: 40,
+            child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: SizedBox(width: 1000, child: BarChartSample2())),
           ),
           SizedBox(
             height: 500,

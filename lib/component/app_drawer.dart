@@ -1,6 +1,7 @@
 import 'package:dino/component/drawer_button.dart';
 import 'package:dino/constant/app_font.dart';
 import 'package:dino/constant/clr.dart';
+import 'package:dino/constant/directory.dart';
 import 'package:dino/screen/charging_screen.dart';
 import 'package:dino/screen/document_screen.dart';
 import 'package:dino/screen/profile_screen.dart';
@@ -36,9 +37,12 @@ class AppDrawer extends StatelessWidget {
                 ),
               )),
           CustDrawerButton(
-            icon: const Icon(
-              Icons.home,
-            ),
+            icon: SizedBox(
+                child: Image.asset(
+              Dir.profileIcon,
+              height: 20,
+              width: 20,
+            )),
             onPress: () {
               Navigator.push(
                   context,
@@ -48,9 +52,12 @@ class AppDrawer extends StatelessWidget {
             title: "Profile",
           ),
           CustDrawerButton(
-            icon: const Icon(
-              Icons.home,
-            ),
+            icon: SizedBox(
+                child: Image.asset(
+              Dir.chargeIcon,
+              height: 20,
+              width: 20,
+            )),
             onPress: () {
               Navigator.push(
                   context,
@@ -60,9 +67,12 @@ class AppDrawer extends StatelessWidget {
             title: "Charging",
           ),
           CustDrawerButton(
-            icon: const Icon(
-              Icons.edit_document,
-            ),
+            icon: SizedBox(
+                child: Image.asset(
+              Dir.chargeIcon,
+              height: 20,
+              width: 20,
+            )),
             onPress: () {
               Navigator.push(
                   context,
@@ -72,51 +82,72 @@ class AppDrawer extends StatelessWidget {
             title: "Document",
           ),
           CustDrawerButton(
-            icon: const Icon(
-              Icons.home,
-            ),
-            onPress: () {},
-            title: "Stats & Insight",
-          ),
-          CustDrawerButton(
-            icon: const Icon(
-              Icons.home,
-            ),
+            icon: SizedBox(
+                child: Image.asset(
+              Dir.protectIcon,
+              height: 20,
+              width: 20,
+            )),
             onPress: () {},
             title: "Warranty & Insurance",
           ),
           CustDrawerButton(
-            icon: const Icon(
-              Icons.home,
-            ),
+            icon: SizedBox(
+                child: Image.asset(
+              Dir.paymentIcon,
+              height: 20,
+              width: 20,
+            )),
             onPress: () {},
             title: "Payment",
           ),
           CustDrawerButton(
-            icon: const Icon(
-              Icons.home,
-            ),
+            icon: SizedBox(
+                child: Image.asset(
+              Dir.chargeIcon,
+              height: 20,
+              width: 20,
+            )),
+            onPress: () {},
+            title: "Insight",
+          ),
+          CustDrawerButton(
+            icon: SizedBox(
+                child: Image.asset(
+              Dir.subscribeIcon,
+              height: 20,
+              width: 20,
+            )),
             onPress: () {},
             title: "Subscription",
           ),
           CustDrawerButton(
-            icon: const Icon(
-              Icons.home,
-            ),
+            icon: SizedBox(
+                child: Image.asset(
+              Dir.supportIcon,
+              height: 20,
+              width: 20,
+            )),
             onPress: () {},
             title: "Support & Service",
           ),
           CustDrawerButton(
-            icon: const Icon(
-              Icons.home,
-            ),
+            icon: SizedBox(
+                child: Image.asset(
+              Dir.exploreIcon,
+              height: 20,
+              width: 20,
+            )),
             onPress: () {},
-            title: "Eplore",
+            title: "Explore",
           ),
           CustDrawerButton(
-            icon: const Icon(
-              Icons.home,
-            ),
+            icon: SizedBox(
+                child: Image.asset(
+              Dir.settingIcon,
+              height: 20,
+              width: 20,
+            )),
             onPress: () {
               Navigator.push(
                   context,

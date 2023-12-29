@@ -1,11 +1,15 @@
 import 'package:dino/component/appbar.dart';
 import 'package:dino/component/drawer_button.dart';
 import 'package:dino/constant/clr.dart';
-import 'package:dino/screen/controll_screen.dart';
-import 'package:dino/screen/icognito_setting_screen.dart';
-import 'package:dino/screen/notification_setting_screen.dart';
-import 'package:dino/screen/permission_setting_screen.dart';
-import 'package:dino/screen/security_settings.dart';
+import 'package:dino/screen/settings_screen/about_setting_screen.dart';
+import 'package:dino/screen/settings_screen/bluetooth_setting_screen.dart';
+import 'package:dino/screen/settings_screen/control_setting_screen.dart';
+
+import 'package:dino/screen/settings_screen/icognito_setting_screen.dart';
+import 'package:dino/screen/settings_screen/notification_setting_screen.dart';
+import 'package:dino/screen/settings_screen/permission_setting_screen.dart';
+import 'package:dino/screen/settings_screen/personalization_setting_screen.dart';
+import 'package:dino/screen/settings_screen/security_settings.dart';
 import 'package:flutter/material.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -67,11 +71,30 @@ class SettingScreen extends StatelessWidget {
         CustDrawerButton(
             title: "Bluetooth",
             icon: const Icon(Icons.bluetooth),
-            onPress: () {}),
+            onPress: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const BluetoothSettingScreen()));
+            }),
         CustDrawerButton(
-            title: "Personalization", icon: Icon(Icons.home), onPress: () {}),
+            title: "Personalization",
+            icon: Icon(Icons.home),
+            onPress: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const PersonalizationScreen()));
+            }),
         CustDrawerButton(
-            title: "Term and Policy", icon: Icon(Icons.home), onPress: () {}),
+            title: "About",
+            icon: const Icon(Icons.info),
+            onPress: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const AboutSettingScreen()));
+            }),
       ]),
     );
   }

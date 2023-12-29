@@ -14,6 +14,7 @@ class ControlScreen extends StatefulWidget {
 class _ControlScreenState extends State<ControlScreen> {
   double _currentCharginhLimit = 20;
   double _currentRegenBreking = 2;
+  double _currentHomeGuide = 60;
 
   @override
   Widget build(BuildContext context) {
@@ -35,23 +36,70 @@ class _ControlScreenState extends State<ControlScreen> {
           ),
         ),
         Container(
-          height: 60,
+          // height: 60,
           padding: const EdgeInsets.all(15),
           margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
           color: Clr.black1,
-          child: Row(
+          child: Column(
             children: [
-              const Icon(Icons.home),
-              const SizedBox(
-                width: 10,
+              Row(
+                children: [
+                  const Icon(Icons.home),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    "Follow me home",
+                    style: Style.fadeTextStyle(
+                        color: Clr.white,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600),
+                  )
+                ],
               ),
-              Text(
-                "Guide me home",
-                style: Style.fadeTextStyle(
-                    color: Clr.white,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w600),
-              )
+              Column(
+                children: [
+                  SizedBox(
+                    height: 30,
+                    child: Slider(
+                      thumbColor: Clr.white,
+                      value: _currentHomeGuide,
+                      max: 100,
+                      divisions: 100,
+                      label: _currentHomeGuide.round().toString(),
+                      min: 0,
+                      activeColor: Clr.teal,
+                      onChanged: (double value) {
+                        setState(() {
+                          _currentHomeGuide = value;
+                        });
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "0",
+                          style: Style.fadeTextStyle(
+                            fontSize: 12,
+                            color: Clr.white,
+                          ),
+                        ),
+                        Text(
+                          "60s",
+                          style: Style.fadeTextStyle(
+                            fontSize: 12,
+                            color: Clr.white,
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ],
           ),
         ),

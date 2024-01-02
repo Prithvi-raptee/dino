@@ -1,6 +1,7 @@
 import 'package:dino/component/style.dart';
 import 'package:dino/constant/app_font.dart';
 import 'package:dino/constant/clr.dart';
+import 'package:dino/constant/directory.dart';
 import 'package:dino/screen/charging_history.dart';
 
 import 'package:dino/screen/qr_scanner_screen.dart';
@@ -15,6 +16,7 @@ class ChargingScreen extends StatefulWidget {
 
 class _ChargingScreenState extends State<ChargingScreen> {
   int chargingPercent = 40;
+  bool isMoreEnable = false;
   List<Color> chargingColor = [
     Colors.green,
     Colors.orange,
@@ -76,10 +78,10 @@ class _ChargingScreenState extends State<ChargingScreen> {
                       MaterialPageRoute(
                           builder: (context) => const QRScannerScreen()));
                 },
-                icon: const Icon(
-                  Icons.qr_code,
-                  size: 50,
-                  color: Clr.white,
+                icon: Image.asset(
+                  Dir.qrIcon,
+                  height: 44,
+                  width: 44,
                 )),
           ),
           const SizedBox(
@@ -112,97 +114,88 @@ class _ChargingScreenState extends State<ChargingScreen> {
           const SizedBox(
             height: 50,
           ),
-          Container(
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) =>
-                          //             const ChargingScreen()));
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.all(13),
-                          margin: const EdgeInsets.all(3),
-                          decoration: BoxDecoration(
-                              color: Clr.grey.withOpacity(0.3),
-                              borderRadius: BorderRadius.circular(20)),
-                          height: 120,
-                          width: 120,
-                          child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Icon(
-                                  Icons.location_on_outlined,
-                                  size: 30,
-                                ),
-                                Expanded(
-                                    child: Center(
-                                        child: Text(
-                                  "Find my station",
-                                  textAlign: TextAlign.left,
-                                  style: Style.headingTextStyle(
-                                      fontSize: 16,
-                                      fontFamily: AppFont.montserrat),
-                                )))
-                              ]),
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.all(5),
+          Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    InkWell(
+                      onTap: () {},
+                      child: Container(
                         padding: const EdgeInsets.all(13),
-                        decoration: BoxDecoration(
-                            color: Clr.grey.withOpacity(0.3),
-                            borderRadius: BorderRadius.circular(20)),
+                        margin: const EdgeInsets.all(3),
+                        decoration: const BoxDecoration(
+                          color: Clr.grey2,
+                        ),
                         height: 120,
                         width: 120,
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Icon(
-                                Icons.bookmark_border,
-                                size: 30,
-                              ),
+                              Image.asset(Dir.mapIcon2),
                               Expanded(
                                   child: Center(
                                       child: Text(
-                                "Book my slot",
+                                "Find my station",
                                 textAlign: TextAlign.left,
                                 style: Style.headingTextStyle(
                                     fontSize: 16,
                                     fontFamily: AppFont.montserrat),
                               )))
                             ]),
-                      )
-                    ],
-                  ),
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(13),
+                      decoration: const BoxDecoration(
+                        color: Clr.grey2,
+                      ),
+                      height: 120,
+                      width: 120,
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Icon(
+                              Icons.bookmark_border,
+                              size: 30,
+                            ),
+                            Expanded(
+                                child: Center(
+                                    child: Text(
+                              "Book my slot",
+                              textAlign: TextAlign.left,
+                              style: Style.headingTextStyle(
+                                  fontSize: 16, fontFamily: AppFont.montserrat),
+                            )))
+                          ]),
+                    )
+                  ],
+                ),
+                if (isMoreEnable)
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
                         padding: const EdgeInsets.all(13),
                         margin: const EdgeInsets.all(3),
-                        decoration: BoxDecoration(
-                            color: Clr.grey.withOpacity(0.3),
-                            borderRadius: BorderRadius.circular(20)),
+                        decoration: const BoxDecoration(
+                          color: Clr.grey2,
+                        ),
                         height: 120,
                         width: 120,
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Icon(
-                                Icons.bar_chart,
-                                size: 30,
+                              Image.asset(
+                                Dir.chartIcon,
+                                // height: 44,
+                                // width: 44,
                               ),
                               Expanded(
                                   child: Center(
@@ -226,9 +219,9 @@ class _ChargingScreenState extends State<ChargingScreen> {
                         child: Container(
                           margin: const EdgeInsets.all(5),
                           padding: const EdgeInsets.all(13),
-                          decoration: BoxDecoration(
-                              color: Clr.grey.withOpacity(0.3),
-                              borderRadius: BorderRadius.circular(20)),
+                          decoration: const BoxDecoration(
+                            color: Clr.grey2,
+                          ),
                           height: 120,
                           width: 120,
                           child: Column(
@@ -253,34 +246,41 @@ class _ChargingScreenState extends State<ChargingScreen> {
                       )
                     ],
                   ),
-                  Container(
-                    margin: const EdgeInsets.all(5),
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                        color: Clr.grey.withOpacity(0.3),
-                        borderRadius: BorderRadius.circular(20)),
-                    height: 50,
-                    width: 250,
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          const Icon(
-                            Icons.more_horiz,
-                            size: 30,
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            "More",
-                            style: Style.headingTextStyle(
-                                fontSize: 16, fontFamily: AppFont.montserrat),
-                          )
-                        ]),
+                if (!isMoreEnable)
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        isMoreEnable = !isMoreEnable;
+                      });
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(10),
+                      decoration: const BoxDecoration(
+                        color: Clr.grey2,
+                      ),
+                      height: 50,
+                      width: 250,
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            const Icon(
+                              Icons.more_horiz,
+                              size: 30,
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              "More",
+                              style: Style.headingTextStyle(
+                                  fontSize: 16, fontFamily: AppFont.montserrat),
+                            )
+                          ]),
+                    ),
                   )
-                ]),
-          )
+              ])
         ],
       ),
     );

@@ -285,10 +285,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
+                            shape: const RoundedRectangleBorder(),
                             backgroundColor: Clr.grey.withOpacity(0.2)),
                         child: const Text(
                           "Download Invoice",
-                          style: TextStyle(fontSize: 12, color: Clr.white),
+                          style: TextStyle(
+                              fontSize: 10,
+                              color: Clr.white1,
+                              fontFamily: AppFont.montserrat),
                         ),
                       ),
                     )
@@ -355,8 +359,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 SizedBox(
                   height: 20,
                   child: ElevatedButton(
-                      style:
-                          ElevatedButton.styleFrom(backgroundColor: Clr.teal2),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Clr.teal2,
+                          shape: const RoundedRectangleBorder()),
                       onPressed: () {},
                       child: Text(
                         "Renew",
@@ -385,10 +390,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
+                            shape: const RoundedRectangleBorder(),
                             backgroundColor: Clr.grey.withOpacity(0.2)),
                         child: const Text(
                           "Download Invoice",
-                          style: TextStyle(fontSize: 12, color: Clr.white),
+                          style: TextStyle(
+                              fontSize: 10,
+                              color: Clr.white1,
+                              fontFamily: AppFont.montserrat),
                         ),
                       ),
                     )
@@ -455,8 +464,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 SizedBox(
                   height: 20,
                   child: ElevatedButton(
-                      style:
-                          ElevatedButton.styleFrom(backgroundColor: Clr.teal2),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Clr.teal2,
+                          shape: const RoundedRectangleBorder()),
                       onPressed: () {},
                       child: Text(
                         "Upgrage",
@@ -485,10 +495,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
+                            shape: const RoundedRectangleBorder(),
                             backgroundColor: Clr.grey.withOpacity(0.2)),
-                        child: const Text(
+                        child: Text(
                           "View all",
-                          style: TextStyle(fontSize: 12, color: Clr.white),
+                          style: Style.fadeTextStyle(
+                              color: Clr.white1, fontSize: 10),
                         ),
                       ),
                     ),

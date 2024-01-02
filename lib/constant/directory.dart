@@ -34,6 +34,9 @@ class Dir {
   static const chartIcon = 'assets/icons/chart_icon.png';
   static const exploreIcon = 'assets/icons/explore_icon.png';
   static const regenrativeIcon = 'assets/icons/regenerative_breaking_icon.png';
+  static const mapIcon2 = 'assets/icons/map_icon2.png';
+  static const incognitoIcon = 'assets/icons/incognito2 2.png';
+  static const personalizionIcon = 'assets/icons/personalization_icon.png';
 
   //Profile
 }

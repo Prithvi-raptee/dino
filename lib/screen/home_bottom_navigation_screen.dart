@@ -70,10 +70,11 @@ class _HomeBottomNavigationScreenState
             ),
             label: 'Home',
           ),
-          const BottomNavigationBarItem(
-            icon: Icon(
-              CupertinoIcons.map,
-              color: Clr.white,
+          BottomNavigationBarItem(
+            icon: Image.asset(
+              Dir.mapIcon2,
+              height: 30,
+              width: 44,
             ),
             label: 'Map',
           ),
@@ -83,7 +84,6 @@ class _HomeBottomNavigationScreenState
               width: 44,
               child: Image.asset(
                 Dir.supportIcon,
-                // fit: BoxFit.cover,
               ),
             ),
             label: 'Support',

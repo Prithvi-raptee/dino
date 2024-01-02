@@ -25,16 +25,36 @@ class AppDrawer extends StatelessWidget {
           Container(
               color: Clr.black,
               alignment: Alignment.bottomLeft,
-              margin: const EdgeInsets.only(top: 100, left: 20, bottom: 10),
-              child: const Text(
-                "Menu",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontStyle: FontStyle.normal,
-                  fontFamily: AppFont.sen,
+              margin: const EdgeInsets.only(top: 50, left: 20, bottom: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: IconButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          icon: Image.asset(
+                            Dir.closeIcon,
+                            height: 30,
+                            width: 30,
+                          )),
+                    ),
+                  ),
+                  const Text(
+                    "Menu",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontStyle: FontStyle.normal,
+                      fontFamily: AppFont.sen,
 
-                  // fontWeight: FontWeight.bold
-                ),
+                      // fontWeight: FontWeight.bold
+                    ),
+                  ),
+                ],
               )),
           CustDrawerButton(
             icon: SizedBox(
@@ -69,7 +89,7 @@ class AppDrawer extends StatelessWidget {
           CustDrawerButton(
             icon: SizedBox(
                 child: Image.asset(
-              Dir.chargeIcon,
+              Dir.documentIcon,
               height: 20,
               width: 20,
             )),
@@ -104,7 +124,7 @@ class AppDrawer extends StatelessWidget {
           CustDrawerButton(
             icon: SizedBox(
                 child: Image.asset(
-              Dir.chargeIcon,
+              Dir.chartIcon,
               height: 20,
               width: 20,
             )),

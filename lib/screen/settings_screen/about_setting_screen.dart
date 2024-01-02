@@ -2,6 +2,7 @@ import 'package:dino/component/appbar.dart';
 import 'package:dino/component/style.dart';
 import 'package:dino/constant/app_font.dart';
 import 'package:dino/constant/clr.dart';
+import 'package:dino/constant/directory.dart';
 import 'package:flutter/material.dart';
 
 class AboutSettingScreen extends StatelessWidget {
@@ -28,12 +29,12 @@ class AboutSettingScreen extends StatelessWidget {
           ),
           Container(
             padding: const EdgeInsets.all(15),
-            decoration: const BoxDecoration(color: Clr.black1),
+            decoration: const BoxDecoration(color: Clr.grey1),
             margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
             child: InkWell(
               onTap: () {},
               child: Row(children: [
-                const Icon(Icons.document_scanner),
+                const ImageIcon(AssetImage(Dir.documentIcon)),
                 const SizedBox(
                   width: 15,
                 ),
@@ -46,12 +47,12 @@ class AboutSettingScreen extends StatelessWidget {
           ),
           Container(
             padding: const EdgeInsets.all(15),
-            decoration: const BoxDecoration(color: Clr.black1),
+            decoration: const BoxDecoration(color: Clr.grey1),
             margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
             child: InkWell(
               onTap: () {},
               child: Row(children: [
-                const Icon(Icons.lock),
+                const Icon(Icons.lock_outline),
                 const SizedBox(
                   width: 15,
                 ),
@@ -64,12 +65,12 @@ class AboutSettingScreen extends StatelessWidget {
           ),
           Container(
             padding: const EdgeInsets.all(15),
-            decoration: const BoxDecoration(color: Clr.black1),
+            decoration: const BoxDecoration(color: Clr.grey1),
             margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
             child: InkWell(
               onTap: () {},
               child: Row(children: [
-                const Icon(Icons.security_rounded),
+                const ImageIcon(AssetImage(Dir.protectIcon)),
                 const SizedBox(
                   width: 15,
                 ),

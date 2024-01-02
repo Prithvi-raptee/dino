@@ -20,8 +20,11 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> _key = GlobalKey();
   CarouselController carouselController = CarouselController();
+  int _currentIndex = 0;
 
   List<String> rideMode = ["RIDE", "SPORT", "WARP"];
+  List<Color> modeColor = [Clr.teal, Clr.red, Clr.green];
+  List<int> modeRange = [120, 80, 60];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,11 +35,11 @@ class _HomeScreenState extends State<HomeScreen> {
         automaticallyImplyLeading:
             false, // this will hide Drawer hamburger icon
         actions: <Widget>[
-          DrawerButton(
-            onPressed: () {
-              _key.currentState!.openDrawer();
-            },
-          ),
+          IconButton(
+              onPressed: () {
+                _key.currentState!.openDrawer();
+              },
+              icon: Image.asset(Dir.menuIcon)),
           const SizedBox(
             width: 20,
           )
@@ -130,22 +133,24 @@ class _HomeScreenState extends State<HomeScreen> {
                         carouselController:
                             carouselController, // give the controller
                         options: CarouselOptions(
+                            enlargeCenterPage: true,
+                            onPageChanged: (index, _) {
+                              setState(() {
+                                _currentIndex = index;
+                              });
+                            }
                             // autoPlay: true,
                             ),
                         items: rideMode.map((mode) {
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 7, vertical: 5),
-                            child: Center(
-                                child: Text(
-                              mode,
-                              style: const TextStyle(
-                                  letterSpacing: 30,
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 14,
-                                  fontFamily: AppFont.montserrat),
-                            )),
-                          );
+                          return Center(
+                              child: Text(
+                            mode,
+                            style: const TextStyle(
+                                letterSpacing: 30,
+                                fontWeight: FontWeight.w700,
+                                fontSize: 14,
+                                fontFamily: AppFont.montserrat),
+                          ));
                         }).toList(),
                       ),
                     ),
@@ -165,6 +170,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               )
             ]),
+            const SizedBox(
+              height: 15,
+            ),
+            SizedBox(
+              width: 70,
+              child: Divider(
+                height: 4,
+                thickness: 4,
+                color: modeColor[_currentIndex],
+              ),
+            ),
             Container(
               margin: const EdgeInsets.only(top: 15),
               padding: const EdgeInsets.symmetric(vertical: 10),
@@ -206,16 +222,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   Expanded(
                     child: Column(
                       children: [
-                        const Row(
+                        Row(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              "120",
-                              style: TextStyle(
+                              modeRange[_currentIndex].toString(),
+                              style: const TextStyle(
                                   fontSize: 18, fontFamily: AppFont.montserrat),
                             ),
-                            Padding(
+                            const Padding(
                               padding: EdgeInsets.only(bottom: 2),
                               child: Text(
                                 "km",

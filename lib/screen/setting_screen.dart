@@ -1,6 +1,7 @@
 import 'package:dino/component/appbar.dart';
 import 'package:dino/component/drawer_button.dart';
 import 'package:dino/constant/clr.dart';
+import 'package:dino/constant/directory.dart';
 import 'package:dino/screen/settings_screen/about_setting_screen.dart';
 import 'package:dino/screen/settings_screen/bluetooth_setting_screen.dart';
 import 'package:dino/screen/settings_screen/control_setting_screen.dart';
@@ -23,7 +24,7 @@ class SettingScreen extends StatelessWidget {
       body: Column(children: [
         CustDrawerButton(
             title: "Controls",
-            icon: const Icon(Icons.home),
+            icon: const ImageIcon(AssetImage(Dir.controlIcon)),
             onPress: () {
               Navigator.push(
                   context,
@@ -32,7 +33,7 @@ class SettingScreen extends StatelessWidget {
             }),
         CustDrawerButton(
             title: "Notifications",
-            icon: const Icon(Icons.home),
+            icon: const ImageIcon(AssetImage(Dir.notificationIcon)),
             onPress: () {
               Navigator.push(
                   context,
@@ -41,7 +42,7 @@ class SettingScreen extends StatelessWidget {
             }),
         CustDrawerButton(
             title: "Permissions",
-            icon: const Icon(Icons.home),
+            icon: const ImageIcon(AssetImage(Dir.permissionIcon)),
             onPress: () {
               Navigator.push(
                   context,
@@ -49,10 +50,12 @@ class SettingScreen extends StatelessWidget {
                       builder: (context) => const PermissionScreen()));
             }),
         CustDrawerButton(
-            title: "OTA Updates", icon: Icon(Icons.home), onPress: () {}),
+            title: "OTA Updates",
+            icon: const ImageIcon(AssetImage(Dir.updateIcon)),
+            onPress: () {}),
         CustDrawerButton(
             title: "Incognito",
-            icon: const Icon(Icons.hide_image),
+            icon: const ImageIcon(AssetImage(Dir.incognitoIcon)),
             onPress: () {
               Navigator.push(
                   context,
@@ -61,7 +64,7 @@ class SettingScreen extends StatelessWidget {
             }),
         CustDrawerButton(
             title: "Security",
-            icon: const Icon(Icons.security),
+            icon: const ImageIcon(AssetImage(Dir.protectIcon)),
             onPress: () {
               Navigator.push(
                   context,
@@ -79,7 +82,7 @@ class SettingScreen extends StatelessWidget {
             }),
         CustDrawerButton(
             title: "Personalization",
-            icon: Icon(Icons.home),
+            icon: const ImageIcon(AssetImage(Dir.personalizionIcon)),
             onPress: () {
               Navigator.push(
                   context,
@@ -88,7 +91,7 @@ class SettingScreen extends StatelessWidget {
             }),
         CustDrawerButton(
             title: "About",
-            icon: const Icon(Icons.info),
+            icon: const Icon(Icons.info_outline),
             onPress: () {
               Navigator.push(
                   context,

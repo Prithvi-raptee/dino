@@ -37,25 +37,21 @@ class _ControlScreenState extends State<ControlScreen> {
         ),
         Container(
           // height: 60,
-          padding: const EdgeInsets.all(15),
+          padding: const EdgeInsets.all(10),
           margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
           color: Clr.black1,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: [
-                  const Icon(Icons.home),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    "Follow me home",
-                    style: Style.fadeTextStyle(
-                        color: Clr.white,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600),
-                  )
-                ],
+              Padding(
+                padding: const EdgeInsets.only(left: 25),
+                child: Text(
+                  "Follow me home",
+                  style: Style.fadeTextStyle(
+                      color: Clr.white,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600),
+                ),
               ),
               Column(
                 children: [
@@ -105,25 +101,21 @@ class _ControlScreenState extends State<ControlScreen> {
         ),
         Container(
           // height: 60,
-          padding: const EdgeInsets.all(15),
+          padding: const EdgeInsets.all(10),
           margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
-          color: Clr.black1,
+          color: Clr.grey2,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: [
-                  const Icon(Icons.home),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    "Set Charging Limit",
-                    style: Style.fadeTextStyle(
-                        color: Clr.white,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600),
-                  )
-                ],
+              Padding(
+                padding: const EdgeInsets.only(left: 25),
+                child: Text(
+                  "Set Charging Limit",
+                  style: Style.fadeTextStyle(
+                      color: Clr.white,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600),
+                ),
               ),
               Column(
                 children: [
@@ -177,21 +169,17 @@ class _ControlScreenState extends State<ControlScreen> {
           margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
           color: Clr.black1,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: [
-                  const Icon(Icons.home),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    "Regen Breking",
-                    style: Style.fadeTextStyle(
-                        color: Clr.white,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600),
-                  )
-                ],
+              Padding(
+                padding: const EdgeInsets.only(left: 25),
+                child: Text(
+                  "Regen Braking",
+                  style: Style.fadeTextStyle(
+                      color: Clr.white,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600),
+                ),
               ),
               Column(
                 children: [
@@ -202,7 +190,7 @@ class _ControlScreenState extends State<ControlScreen> {
                       max: 100,
                       divisions: 2,
                       thumbColor: Clr.white,
-                      label: _currentRegenBreking.round().toString(),
+                      // label: _currentRegenBreking.round().toString(),
                       min: 0,
                       activeColor: Clr.teal,
                       onChanged: (double value) {

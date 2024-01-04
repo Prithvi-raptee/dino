@@ -8,6 +8,7 @@ import 'package:dino/screen/settings_screen/control_setting_screen.dart';
 
 import 'package:dino/screen/settings_screen/icognito_setting_screen.dart';
 import 'package:dino/screen/settings_screen/notification_setting_screen.dart';
+import 'package:dino/screen/settings_screen/ota_update_screen.dart';
 import 'package:dino/screen/settings_screen/permission_setting_screen.dart';
 import 'package:dino/screen/settings_screen/personalization_setting_screen.dart';
 import 'package:dino/screen/settings_screen/security_settings.dart';
@@ -52,7 +53,12 @@ class SettingScreen extends StatelessWidget {
         CustDrawerButton(
             title: "OTA Updates",
             icon: const ImageIcon(AssetImage(Dir.updateIcon)),
-            onPress: () {}),
+            onPress: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const OTAUpadateScreen()));
+            }),
         CustDrawerButton(
             title: "Incognito",
             icon: const ImageIcon(AssetImage(Dir.incognitoIcon)),

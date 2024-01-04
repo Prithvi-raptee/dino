@@ -6,6 +6,8 @@ import 'package:dino/screen/charging_screen.dart';
 import 'package:dino/screen/document_screen.dart';
 import 'package:dino/screen/profile_screen.dart';
 import 'package:dino/screen/setting_screen.dart';
+import 'package:dino/screen/insight_screen.dart';
+import 'package:dino/screen/support_and_service_screen.dart';
 
 import 'package:flutter/material.dart';
 
@@ -128,7 +130,12 @@ class AppDrawer extends StatelessWidget {
               height: 20,
               width: 20,
             )),
-            onPress: () {},
+            onPress: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const InsightScreen()));
+            },
             title: "Insight",
           ),
           CustDrawerButton(
@@ -148,7 +155,12 @@ class AppDrawer extends StatelessWidget {
               height: 20,
               width: 20,
             )),
-            onPress: () {},
+            onPress: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const SupportAndServiceScreen()));
+            },
             title: "Support & Service",
           ),
           CustDrawerButton(

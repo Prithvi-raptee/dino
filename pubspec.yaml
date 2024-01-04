@@ -43,6 +43,7 @@ dependencies:
   qr_code_scanner: ^1.0.1
   fl_chart: ^0.66.0
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -100,6 +101,11 @@ flutter:
         - asset: assets/fonts/Avenir-Next.ttf
     
     - family: Sen
+      fonts:
+        - asset: assets/fonts/Sen-ExtraBold.ttf
+        - asset: assets/fonts/Sen-ExtraBold.ttf
+
+    - family: Avenir-Bold
       fonts:
         - asset: assets/fonts/Sen-ExtraBold.ttf
         - asset: assets/fonts/Sen-ExtraBold.ttf

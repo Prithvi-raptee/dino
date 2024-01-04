@@ -3,4 +3,5 @@ class AppFont {
   static const nebula = "Nebula";
   static const avenir = "Avenir";
   static const sen = "Sen";
+  static const avenirBold = "Avenir-Bold";
 }

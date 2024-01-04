@@ -1,7 +1,8 @@
 import 'package:dino/component/appbar.dart';
-import 'package:dino/component/style.dart';
+import 'package:dino/component/screen_heading.dart';
+
 import 'package:dino/component/switch_with_details_setting_button.dart';
-import 'package:dino/constant/app_font.dart';
+
 import 'package:dino/constant/clr.dart';
 
 import 'package:flutter/material.dart';
@@ -26,19 +27,7 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
         appBar: appBar(context, "Settings"),
         backgroundColor: Clr.black,
         body: Column(children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 15),
-              child: Text(
-                "Notifications",
-                style: Style.headingTextStyle(
-                    fontSize: 20,
-                    fontFamily: AppFont.sen,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
+          screenHeading("Notifications"),
           const SizedBox(height: 20),
           swithWithDetailsWidget(
               initialValue: isGenral,

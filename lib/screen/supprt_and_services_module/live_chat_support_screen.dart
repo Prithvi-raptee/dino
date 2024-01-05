@@ -4,6 +4,8 @@ import 'package:dino/constant/clr.dart';
 import 'package:dino/models/live_chat_support_data_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:sticky_grouped_list/sticky_grouped_list.dart';
 
 class LiveChatSupportScreen extends StatefulWidget {
   const LiveChatSupportScreen({super.key});
@@ -13,19 +15,21 @@ class LiveChatSupportScreen extends StatefulWidget {
 }
 
 class _LiveChatSupportScreenState extends State<LiveChatSupportScreen> {
-  TextEditingController _msgController = TextEditingController();
-  ScrollController _msgScrollController = ScrollController();
+  final TextEditingController _msgController = TextEditingController();
+  final ScrollController _msgScrollController = ScrollController();
+  final GroupedItemScrollController _msgScrollController1 =
+      GroupedItemScrollController();
   List<LiveChatSupportDataModel> chatData = [
     LiveChatSupportDataModel(
-        time: "2024-01-05 11:36:40.972",
+        time: "2024-01-01 11:36:40.972",
         sendByYou: true,
         msg: "Hi I need help to buy a bike."),
     LiveChatSupportDataModel(
-        time: "2024-01-05 11:36:40.972",
+        time: "2024-01-03 11:36:40.972",
         sendByYou: false,
         msg: "Hi I need help to buy a bike."),
     LiveChatSupportDataModel(
-        time: "2024-01-05 14:36:40.972",
+        time: "2024-01-04 14:36:40.972",
         sendByYou: true,
         msg: "Hi I need help to buy a bike."),
   ];
@@ -49,26 +53,41 @@ class _LiveChatSupportScreenState extends State<LiveChatSupportScreen> {
             left: 15,
             right: 15,
           ),
-          child: ListView.builder(
-              padding: const EdgeInsets.only(bottom: 80),
-              itemCount: chatData.length,
-              controller: _msgScrollController,
-              itemBuilder: (context, index) {
-                bool isAm = true;
-                var hour = DateTime.parse(chatData[index].time).hour;
-                var minute = DateTime.parse(chatData[index].time).minute;
+          child: StickyGroupedListView<LiveChatSupportDataModel, String>(
+            elements: chatData,
+            groupBy: (LiveChatSupportDataModel data) => DateTime(
+              DateTime.parse(data.time).year,
+              DateTime.parse(data.time).month,
+              DateTime.parse(data.time).day,
+            ).toString(),
+            floatingHeader: true,
 
-                if (hour > 11) {
+            // stickyHeaderBackgroundColor: Colors.red,
+
+            groupSeparatorBuilder: (dynamic element) =>
+                _getGroupSeparator(element),
+            itemBuilder: (context, dynamic element) {
+              bool isAm = true;
+              var hour = DateTime.parse(element.time).hour;
+              var minute = DateTime.parse(element.time).minute;
+
+              if (hour > 11) {
+                // hour -= 12;
+                isAm = false;
+                if (hour > 12) {
                   hour -= 12;
-                  isAm = false;
                 }
-                String time = "$hour:$minute ${isAm ? "am" : "pm"}";
+              }
+              String time = "$hour:$minute ${isAm ? "am" : "pm"}";
 
-                return chatMessageUI(context,
-                    sendByYou: chatData[index].sendByYou,
-                    time: time,
-                    msg: chatData[index].msg);
-              }),
+              return chatMessageUI(context,
+                  sendByYou: element.sendByYou, time: time, msg: element.msg);
+            },
+
+            itemComparator: (e1, e2) => e1.time.compareTo(e2.time), //
+            itemScrollController: _msgScrollController1, // optional
+            order: StickyGroupedListOrder.ASC, // optional
+          ),
         ),
         Align(
           alignment: Alignment.bottomCenter,
@@ -96,17 +115,19 @@ class _LiveChatSupportScreenState extends State<LiveChatSupportScreen> {
                 )),
                 IconButton(
                     onPressed: () {
-                      chatData.add(LiveChatSupportDataModel(
-                          time: DateTime.now().toString(),
-                          sendByYou: true,
-                          msg: _msgController.text.trim()));
+                      if (_msgController.text.trim().isNotEmpty) {
+                        chatData.add(LiveChatSupportDataModel(
+                            time: DateTime.now().toString(),
+                            sendByYou: true,
+                            msg: _msgController.text.trim()));
 
-                      _msgController.clear();
+                        _msgController.clear();
 
-                      setState(() {});
-                      if (_msgScrollController.hasClients) {
-                        _msgScrollController.jumpTo(
-                            _msgScrollController.position.maxScrollExtent);
+                        setState(() {});
+
+                        _msgScrollController1.scrollTo(
+                            index: chatData.length,
+                            duration: const Duration(milliseconds: 1));
                       }
                     },
                     icon: const Icon(
@@ -122,6 +143,20 @@ class _LiveChatSupportScreenState extends State<LiveChatSupportScreen> {
     );
   }
 
+  Widget _getGroupSeparator(element) {
+    return SizedBox(
+      height: 30,
+      child: Align(
+        alignment: Alignment.center,
+        child: Text(
+          DateFormat.MMMEd().format(DateTime.parse(element.time)),
+          textAlign: TextAlign.center,
+          style: Style.fadeTextStyle(fontSize: 11, color: Clr.white1),
+        ),
+      ),
+    );
+  }
+
   Column chatMessageUI(
     BuildContext context, {
     required bool sendByYou,
@@ -132,36 +167,39 @@ class _LiveChatSupportScreenState extends State<LiveChatSupportScreen> {
         crossAxisAlignment:
             !sendByYou ? CrossAxisAlignment.start : CrossAxisAlignment.end,
         children: [
-          Container(
-            padding: const EdgeInsets.all(10),
-            margin: EdgeInsets.only(
-              top: 10,
-              right: !sendByYou ? MediaQuery.of(context).size.width * .2 : 0,
-              left: sendByYou ? MediaQuery.of(context).size.width * .2 : 0,
+          ConstrainedBox(
+            constraints: const BoxConstraints(minWidth: 150),
+            child: Container(
+              padding: const EdgeInsets.all(10),
+              margin: EdgeInsets.only(
+                top: 10,
+                right: !sendByYou ? MediaQuery.of(context).size.width * .2 : 0,
+                left: sendByYou ? MediaQuery.of(context).size.width * .2 : 0,
+              ),
+              // height: 100,
+              decoration: BoxDecoration(
+                  color: !sendByYou ? Clr.grey1 : Clr.teal2,
+                  borderRadius: BorderRadius.circular(20)),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      sendByYou ? "You" : "Raptee",
+                      style: Style.fadeTextStyle(
+                          fontSize: 14,
+                          color: !sendByYou ? Clr.teal2 : Clr.white,
+                          fontWeight: FontWeight.w600),
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    Text(
+                      msg,
+                      style: Style.fadeTextStyle(color: Clr.white),
+                    )
+                  ]),
             ),
-            // height: 100,
-            decoration: BoxDecoration(
-                color: !sendByYou ? Clr.grey1 : Clr.teal2,
-                borderRadius: BorderRadius.circular(20)),
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    sendByYou ? "You" : "Raptee",
-                    style: Style.fadeTextStyle(
-                        fontSize: 14,
-                        color: !sendByYou ? Clr.teal2 : Clr.white,
-                        fontWeight: FontWeight.w600),
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  Text(
-                    msg,
-                    style: Style.fadeTextStyle(color: Clr.white),
-                  )
-                ]),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 8, top: 3),

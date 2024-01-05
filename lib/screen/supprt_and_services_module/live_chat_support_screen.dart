@@ -13,22 +13,28 @@ class LiveChatSupportScreen extends StatefulWidget {
 }
 
 class _LiveChatSupportScreenState extends State<LiveChatSupportScreen> {
+  TextEditingController _msgController = TextEditingController();
+  ScrollController _msgScrollController = ScrollController();
   List<LiveChatSupportDataModel> chatData = [
     LiveChatSupportDataModel(
-        time: "10:00 am",
+        time: "2024-01-05 11:36:40.972",
         sendByYou: true,
         msg: "Hi I need help to buy a bike."),
     LiveChatSupportDataModel(
-        time: "10:00 am",
+        time: "2024-01-05 11:36:40.972",
         sendByYou: false,
         msg: "Hi I need help to buy a bike."),
     LiveChatSupportDataModel(
-        time: "10:00 am",
+        time: "2024-01-05 14:36:40.972",
         sendByYou: true,
         msg: "Hi I need help to buy a bike."),
   ];
   @override
   Widget build(BuildContext context) {
+    if (_msgScrollController.hasClients) {
+      _msgScrollController
+          .jumpTo(_msgScrollController.position.maxScrollExtent);
+    }
     return Scaffold(
       appBar: appBar(context, "Live Chat"),
       body: Stack(children: [
@@ -38,13 +44,29 @@ class _LiveChatSupportScreenState extends State<LiveChatSupportScreen> {
                   colors: [Clr.teal.withOpacity(0.1), Clr.black])),
         ),
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
+          margin: const EdgeInsets.only(bottom: 100),
+          padding: const EdgeInsets.only(
+            left: 15,
+            right: 15,
+          ),
           child: ListView.builder(
+              padding: const EdgeInsets.only(bottom: 80),
               itemCount: chatData.length,
+              controller: _msgScrollController,
               itemBuilder: (context, index) {
+                bool isAm = true;
+                var hour = DateTime.parse(chatData[index].time).hour;
+                var minute = DateTime.parse(chatData[index].time).minute;
+
+                if (hour > 11) {
+                  hour -= 12;
+                  isAm = false;
+                }
+                String time = "$hour:$minute ${isAm ? "am" : "pm"}";
+
                 return chatMessageUI(context,
                     sendByYou: chatData[index].sendByYou,
-                    time: chatData[index].time,
+                    time: time,
                     msg: chatData[index].msg);
               }),
         ),
@@ -62,6 +84,7 @@ class _LiveChatSupportScreenState extends State<LiveChatSupportScreen> {
                   margin: const EdgeInsets.only(left: 15, right: 7),
                   color: Clr.black1,
                   child: TextFormField(
+                    controller: _msgController,
                     maxLines: 5,
                     minLines: 1,
                     cursorColor: Clr.teal,
@@ -72,7 +95,20 @@ class _LiveChatSupportScreenState extends State<LiveChatSupportScreen> {
                   ),
                 )),
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      chatData.add(LiveChatSupportDataModel(
+                          time: DateTime.now().toString(),
+                          sendByYou: true,
+                          msg: _msgController.text.trim()));
+
+                      _msgController.clear();
+
+                      setState(() {});
+                      if (_msgScrollController.hasClients) {
+                        _msgScrollController.jumpTo(
+                            _msgScrollController.position.maxScrollExtent);
+                      }
+                    },
                     icon: const Icon(
                       CupertinoIcons.arrow_up_circle,
                       color: Clr.teal,

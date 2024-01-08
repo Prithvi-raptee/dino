@@ -20,175 +20,177 @@ class AppDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: Clr.black,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Container(
-              color: Clr.black,
-              alignment: Alignment.bottomLeft,
-              margin: const EdgeInsets.only(top: 50, left: 20, bottom: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: IconButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          icon: Image.asset(
-                            Dir.closeIcon,
-                            height: 30,
-                            width: 30,
-                          )),
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+                color: Clr.black,
+                alignment: Alignment.bottomLeft,
+                margin: const EdgeInsets.only(top: 50, left: 20, bottom: 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: IconButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            icon: Image.asset(
+                              Dir.closeIcon,
+                              height: 30,
+                              width: 30,
+                            )),
+                      ),
                     ),
-                  ),
-                  const Text(
-                    "Menu",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontStyle: FontStyle.normal,
-                      fontFamily: AppFont.sen,
+                    const Text(
+                      "Menu",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontStyle: FontStyle.normal,
+                        fontFamily: AppFont.sen,
 
-                      // fontWeight: FontWeight.bold
+                        // fontWeight: FontWeight.bold
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                )),
+            CustDrawerButton(
+              icon: SizedBox(
+                  child: Image.asset(
+                Dir.profileIcon,
+                height: 20,
+                width: 20,
               )),
-          CustDrawerButton(
-            icon: SizedBox(
-                child: Image.asset(
-              Dir.profileIcon,
-              height: 20,
-              width: 20,
-            )),
-            onPress: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const ProfileScreen()));
-            },
-            title: "Profile",
-          ),
-          CustDrawerButton(
-            icon: SizedBox(
-                child: Image.asset(
-              Dir.chargeIcon,
-              height: 20,
-              width: 20,
-            )),
-            onPress: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const ChargingScreen()));
-            },
-            title: "Charging",
-          ),
-          CustDrawerButton(
-            icon: SizedBox(
-                child: Image.asset(
-              Dir.documentIcon,
-              height: 20,
-              width: 20,
-            )),
-            onPress: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const DocumentScreen()));
-            },
-            title: "Document",
-          ),
-          CustDrawerButton(
-            icon: SizedBox(
-                child: Image.asset(
-              Dir.protectIcon,
-              height: 20,
-              width: 20,
-            )),
-            onPress: () {},
-            title: "Warranty & Insurance",
-          ),
-          CustDrawerButton(
-            icon: SizedBox(
-                child: Image.asset(
-              Dir.paymentIcon,
-              height: 20,
-              width: 20,
-            )),
-            onPress: () {},
-            title: "Payment",
-          ),
-          CustDrawerButton(
-            icon: SizedBox(
-                child: Image.asset(
-              Dir.chartIcon,
-              height: 20,
-              width: 20,
-            )),
-            onPress: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const InsightScreen()));
-            },
-            title: "Insight",
-          ),
-          CustDrawerButton(
-            icon: SizedBox(
-                child: Image.asset(
-              Dir.subscribeIcon,
-              height: 20,
-              width: 20,
-            )),
-            onPress: () {},
-            title: "Subscription",
-          ),
-          CustDrawerButton(
-            icon: SizedBox(
-                child: Image.asset(
-              Dir.supportIcon,
-              height: 20,
-              width: 20,
-            )),
-            onPress: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const SupportAndServiceScreen()));
-            },
-            title: "Support & Service",
-          ),
-          CustDrawerButton(
-            icon: SizedBox(
-                child: Image.asset(
-              Dir.exploreIcon,
-              height: 20,
-              width: 20,
-            )),
-            onPress: () {},
-            title: "Explore",
-          ),
-          CustDrawerButton(
-            icon: SizedBox(
-                child: Image.asset(
-              Dir.settingIcon,
-              height: 20,
-              width: 20,
-            )),
-            onPress: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const SettingScreen()));
-            },
-            title: "Settings",
-          ),
-        ],
+              onPress: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ProfileScreen()));
+              },
+              title: "Profile",
+            ),
+            CustDrawerButton(
+              icon: SizedBox(
+                  child: Image.asset(
+                Dir.chargeIcon,
+                height: 20,
+                width: 20,
+              )),
+              onPress: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ChargingScreen()));
+              },
+              title: "Charging",
+            ),
+            CustDrawerButton(
+              icon: SizedBox(
+                  child: Image.asset(
+                Dir.documentIcon,
+                height: 20,
+                width: 20,
+              )),
+              onPress: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const DocumentScreen()));
+              },
+              title: "Document",
+            ),
+            CustDrawerButton(
+              icon: SizedBox(
+                  child: Image.asset(
+                Dir.protectIcon,
+                height: 20,
+                width: 20,
+              )),
+              onPress: () {},
+              title: "Warranty & Insurance",
+            ),
+            CustDrawerButton(
+              icon: SizedBox(
+                  child: Image.asset(
+                Dir.paymentIcon,
+                height: 20,
+                width: 20,
+              )),
+              onPress: () {},
+              title: "Payment",
+            ),
+            CustDrawerButton(
+              icon: SizedBox(
+                  child: Image.asset(
+                Dir.chartIcon,
+                height: 20,
+                width: 20,
+              )),
+              onPress: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const InsightScreen()));
+              },
+              title: "Insight",
+            ),
+            CustDrawerButton(
+              icon: SizedBox(
+                  child: Image.asset(
+                Dir.subscribeIcon,
+                height: 20,
+                width: 20,
+              )),
+              onPress: () {},
+              title: "Subscription",
+            ),
+            CustDrawerButton(
+              icon: SizedBox(
+                  child: Image.asset(
+                Dir.supportIcon,
+                height: 20,
+                width: 20,
+              )),
+              onPress: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SupportAndServiceScreen()));
+              },
+              title: "Support & Service",
+            ),
+            CustDrawerButton(
+              icon: SizedBox(
+                  child: Image.asset(
+                Dir.exploreIcon,
+                height: 20,
+                width: 20,
+              )),
+              onPress: () {},
+              title: "Explore",
+            ),
+            CustDrawerButton(
+              icon: SizedBox(
+                  child: Image.asset(
+                Dir.settingIcon,
+                height: 20,
+                width: 20,
+              )),
+              onPress: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SettingScreen()));
+              },
+              title: "Settings",
+            ),
+          ],
+        ),
       ),
     );
   }

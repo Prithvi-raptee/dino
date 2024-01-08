@@ -4,6 +4,7 @@ class Dir {
   static const bikeImage1 = "assets/image/bike_image1.png";
   static const bikeImage2 = "assets/image/bike_image2.png";
   static const bikeImage3 = "assets/image/bike_image3.png";
+  static const bikeImage4 = "assets/image/bike_image4.png";
 
   //Logo Directory Location
   static const logoIcon = "assets/icons/logo_icon.png";
@@ -37,6 +38,7 @@ class Dir {
   static const mapIcon2 = 'assets/icons/map_icon2.png';
   static const incognitoIcon = 'assets/icons/incognito2 2.png';
   static const personalizionIcon = 'assets/icons/personalization_icon.png';
+  static const doneIcon = 'assets/icons/done_icon.png';
 
   //Profile
 }

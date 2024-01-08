@@ -5,6 +5,7 @@ import 'package:dino/component/button_with_icon_desc.dart';
 import 'package:dino/constant/clr.dart';
 import 'package:dino/screen/supprt_and_services_module/live_chat_support_screen.dart';
 import 'package:dino/screen/supprt_and_services_module/schedule_service_screen.dart';
+import 'package:dino/screen/supprt_and_services_module/service_history_screen.dart';
 import 'package:dino/screen/supprt_and_services_module/support_ticket_screen.dart';
 
 import 'package:flutter/material.dart';
@@ -84,7 +85,12 @@ class SupportAndServiceScreen extends StatelessWidget {
                 icon: const Icon(Icons.alarm)),
             buttonWithIcon(
                 color: Clr.black,
-                onPress: () {},
+                onPress: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ServiceHistoryScreen()));
+                },
                 title: "Service History",
                 fontWeight: FontWeight.bold,
                 padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 0),

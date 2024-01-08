@@ -6,8 +6,7 @@ import 'package:dino/screen/home_screen.dart';
 
 import 'package:dino/screen/map_screen.dart';
 import 'package:dino/screen/rave_screen.dart';
-import 'package:dino/screen/support_screen.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:dino/screen/support_and_service_screen.dart';
 
 import 'package:flutter/material.dart';
 
@@ -26,7 +25,7 @@ class _HomeBottomNavigationScreenState
   static List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     MapScreen(),
-    SupportScreen(),
+    SupportAndServiceScreen(),
     RaveScreen()
   ];
 

@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Dino',
         theme: ThemeData(
           brightness: Setup.themeCode == 0 ? Brightness.dark : Brightness.light,

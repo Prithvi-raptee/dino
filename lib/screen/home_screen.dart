@@ -5,10 +5,13 @@ import 'package:dino/component/style.dart';
 import 'package:dino/constant/clr.dart';
 import 'package:dino/constant/directory.dart';
 import 'package:dino/constant/app_font.dart';
-import 'package:dino/constant/url.dart';
+
+import 'package:dino/secrete/map_my_india_key.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:mappls_gl/mappls_gl.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -25,6 +28,20 @@ class _HomeScreenState extends State<HomeScreen> {
   List<String> rideMode = ["RIDE", "SPORT", "WARP"];
   List<Color> modeColor = [Clr.teal, Clr.red, Clr.green];
   List<int> modeRange = [120, 80, 60];
+
+  static const CameraPosition _kInitialPosition = CameraPosition(
+    target: LatLng(13.017885, 80.173810),
+    zoom: 14.0,
+  );
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    MapMyIndiaKey.setKey();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -311,10 +328,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
                 Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: NetworkImage(AppUrl.mapImage))),
+                  child: MapplsMap(
+                    initialCameraPosition: _kInitialPosition,
+                    myLocationEnabled: true,
+                    myLocationTrackingMode: MyLocationTrackingMode.NoneCompass,
+                    onMapClick: (point, latlng) =>
+                        {Fluttertoast.showToast(msg: latlng.toString())},
                   ),
                 )
               ]),

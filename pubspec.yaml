@@ -45,6 +45,17 @@ dependencies:
   sticky_grouped_list: ^3.1.0
   intl: ^0.18.1
   custom_radio_grouped_button: ^2.2.1
+  flutter_rating_bar: ^4.0.1
+  banner_carousel: ^1.2.1
+  dropdown_button2: ^2.3.9
+  # mapmyindia_gl: any,
+  mappls_gl: ^1.0.1
+  location: ^5.0.3
+  fluttertoast: ^8.2.1
+  mappls_place_widget: ^1.0.0
+  mappls_direction_plugin: ^1.0.0
+  mappls_nearby_plugin: ^1.0.0
+  turf: ^0.0.7
 
 
 dev_dependencies:

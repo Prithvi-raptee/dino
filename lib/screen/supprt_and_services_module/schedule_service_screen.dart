@@ -3,6 +3,8 @@ import 'package:dino/component/style.dart';
 import 'package:dino/constant/app_font.dart';
 import 'package:dino/constant/clr.dart';
 import 'package:dino/screen/supprt_and_services_module/schedule_service_slot_screen.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ScheduleServiceScreen extends StatefulWidget {
@@ -18,6 +20,48 @@ class _ScheduleServiceScreenState extends State<ScheduleServiceScreen> {
   String selectedSeverity = "minor";
   String selectedMovable = "movable";
   String selectedServiceMode = "self";
+
+  static const List<String> stateList = <String>[
+    'State1',
+    'State2',
+    'State3',
+    'State4'
+  ];
+  final List<String> cityList = [
+    'City1',
+    'City2',
+    'City3',
+    'City4',
+    'City5',
+    'City6',
+    'City7',
+    'City8',
+  ];
+  final List<String> pincodeList = [
+    'PinCode1',
+    'PinCode2',
+    'PinCode3',
+    'PinCode4',
+    'PinCode5',
+    'PinCode6',
+    'PinCode7',
+    'PinCode8',
+  ];
+  final List<String> dealerList = [
+    'Dealer1',
+    'Dealer2',
+    'Dealer3',
+    'Dealer4',
+    'Dealer5',
+    'Dealer6',
+    'Dealer7',
+    'Dealer8',
+  ];
+  String? selectedState;
+  String? selectedCity;
+  String? selectedPincode;
+
+  String? selectedDealer;
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +98,7 @@ class _ScheduleServiceScreenState extends State<ScheduleServiceScreen> {
                           });
                         },
                         child: Container(
-                          // height: 140,
+                          height: 140,
                           margin: const EdgeInsets.all(8),
                           padding: const EdgeInsets.symmetric(
                               horizontal: 10, vertical: 15),
@@ -93,7 +137,7 @@ class _ScheduleServiceScreenState extends State<ScheduleServiceScreen> {
                           });
                         },
                         child: Container(
-                          // height: 140,
+                          height: 140,
                           margin: const EdgeInsets.all(3),
                           padding: const EdgeInsets.symmetric(
                               horizontal: 10, vertical: 15),
@@ -132,7 +176,7 @@ class _ScheduleServiceScreenState extends State<ScheduleServiceScreen> {
                           });
                         },
                         child: Container(
-                          // height: 140,
+                          height: 140,
                           margin: const EdgeInsets.all(8),
                           padding: const EdgeInsets.symmetric(
                               horizontal: 10, vertical: 15),
@@ -273,77 +317,77 @@ class _ScheduleServiceScreenState extends State<ScheduleServiceScreen> {
             const SizedBox(
               height: 15,
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Text(
-                    "Movable or immovable",
-                    style: Style.fadeTextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: AppFont.avenir,
-                        color: Clr.white1),
-                  ),
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: InkWell(
-                        onTap: () {
-                          setState(() {
-                            selectedMovable = "movable";
-                          });
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.all(8),
-                          margin: const EdgeInsets.all(3),
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: selectedMovable == "movable"
-                                  ? selectedColor
-                                  : Clr.grey1),
-                          child: Text(
-                            "Movable",
-                            style: Style.fadeTextStyle(
-                                fontSize: 10, color: Clr.white1),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: InkWell(
-                        onTap: () {
-                          selectedMovable = "immovable";
-                          setState(() {});
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.all(8),
-                          margin: const EdgeInsets.all(3),
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: selectedMovable == "immovable"
-                                  ? selectedColor
-                                  : Clr.grey1),
-                          child: Text(
-                            "Immovable",
-                            style: Style.fadeTextStyle(
-                                fontSize: 10, color: Clr.white1),
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
-                )
-              ],
-            ),
-            const SizedBox(
-              height: 15,
-            ),
+            // Column(
+            //   crossAxisAlignment: CrossAxisAlignment.start,
+            //   mainAxisAlignment: MainAxisAlignment.start,
+            //   children: [
+            //     Align(
+            //       alignment: Alignment.bottomLeft,
+            //       child: Text(
+            //         "Movable or immovable",
+            //         style: Style.fadeTextStyle(
+            //             fontSize: 16,
+            //             fontWeight: FontWeight.bold,
+            //             fontFamily: AppFont.avenir,
+            //             color: Clr.white1),
+            //       ),
+            //     ),
+            //     Row(
+            //       children: [
+            //         Expanded(
+            //           child: InkWell(
+            //             onTap: () {
+            //               setState(() {
+            //                 selectedMovable = "movable";
+            //               });
+            //             },
+            //             child: Container(
+            //               padding: const EdgeInsets.all(8),
+            //               margin: const EdgeInsets.all(3),
+            //               alignment: Alignment.center,
+            //               decoration: BoxDecoration(
+            //                   borderRadius: BorderRadius.circular(10),
+            //                   color: selectedMovable == "movable"
+            //                       ? selectedColor
+            //                       : Clr.grey1),
+            //               child: Text(
+            //                 "Movable",
+            //                 style: Style.fadeTextStyle(
+            //                     fontSize: 10, color: Clr.white1),
+            //               ),
+            //             ),
+            //           ),
+            //         ),
+            //         Expanded(
+            //           child: InkWell(
+            //             onTap: () {
+            //               selectedMovable = "immovable";
+            //               setState(() {});
+            //             },
+            //             child: Container(
+            //               padding: const EdgeInsets.all(8),
+            //               margin: const EdgeInsets.all(3),
+            //               alignment: Alignment.center,
+            //               decoration: BoxDecoration(
+            //                   borderRadius: BorderRadius.circular(10),
+            //                   color: selectedMovable == "immovable"
+            //                       ? selectedColor
+            //                       : Clr.grey1),
+            //               child: Text(
+            //                 "Immovable",
+            //                 style: Style.fadeTextStyle(
+            //                     fontSize: 10, color: Clr.white1),
+            //               ),
+            //             ),
+            //           ),
+            //         )
+            //       ],
+            //     )
+            //   ],
+            // ),
+            // const SizedBox(
+            //   height: 15,
+            // ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -438,6 +482,391 @@ class _ScheduleServiceScreenState extends State<ScheduleServiceScreen> {
             const SizedBox(
               height: 30,
             ),
+
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Text(
+                    'Select Location',
+                    style: Style.fadeTextStyle(
+                        fontSize: 16,
+                        color: Clr.white,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 4),
+                      child: Text(
+                        "State",
+                        style: Style.fadeTextStyle(
+                          fontSize: 10,
+                        ),
+                      ),
+                    ),
+                    DropdownButtonHideUnderline(
+                      child: DropdownButton2<String>(
+                        isExpanded: true,
+                        hint: Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                'Select State',
+                                style: Style.fadeTextStyle(color: Clr.white1),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ],
+                        ),
+                        items: stateList
+                            .map((String item) => DropdownMenuItem<String>(
+                                  value: item,
+                                  child: Text(
+                                    item,
+                                    style: Style.fadeTextStyle(
+                                      color: Clr.white1,
+                                    ),
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ))
+                            .toList(),
+                        value: selectedState,
+                        onChanged: (String? value) {
+                          setState(() {
+                            selectedState = value;
+                          });
+                        },
+                        buttonStyleData: ButtonStyleData(
+                          padding: const EdgeInsets.only(left: 14, right: 14),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              width: 0.5,
+                              color: Clr.grey,
+                            ),
+                          ),
+                          elevation: 2,
+                        ),
+                        iconStyleData: const IconStyleData(
+                          icon: Icon(
+                            Icons.arrow_drop_down_outlined,
+                          ),
+                          iconSize: 14,
+                          iconEnabledColor: Colors.white,
+                          iconDisabledColor: Colors.grey,
+                        ),
+                        dropdownStyleData: DropdownStyleData(
+                          maxHeight: 200,
+                          width: 200,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(14),
+                            // color: Colors.redAccent,
+                          ),
+                          offset: const Offset(-20, 0),
+                          scrollbarTheme: ScrollbarThemeData(
+                            radius: const Radius.circular(40),
+                            thickness: MaterialStateProperty.all<double>(6),
+                            thumbVisibility:
+                                MaterialStateProperty.all<bool>(true),
+                          ),
+                        ),
+                        menuItemStyleData: const MenuItemStyleData(
+                          height: 40,
+                          padding: EdgeInsets.only(left: 14, right: 14),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 4),
+                            child: Text(
+                              "City",
+                              style: Style.fadeTextStyle(
+                                fontSize: 10,
+                              ),
+                            ),
+                          ),
+                          DropdownButtonHideUnderline(
+                            child: DropdownButton2<String>(
+                              isExpanded: true,
+                              hint: Row(
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      'Select City',
+                                      style: Style.fadeTextStyle(
+                                          color: Clr.white1),
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              items: cityList
+                                  .map(
+                                      (String item) => DropdownMenuItem<String>(
+                                            value: item,
+                                            child: Text(
+                                              item,
+                                              style: Style.fadeTextStyle(
+                                                color: Clr.white1,
+                                              ),
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                          ))
+                                  .toList(),
+                              value: selectedCity,
+                              onChanged: (String? value) {
+                                setState(() {
+                                  selectedCity = value;
+                                });
+                              },
+                              buttonStyleData: ButtonStyleData(
+                                padding:
+                                    const EdgeInsets.only(left: 14, right: 14),
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    width: 0.5,
+                                    color: Clr.grey,
+                                  ),
+                                ),
+                                elevation: 2,
+                              ),
+                              iconStyleData: const IconStyleData(
+                                icon: Icon(
+                                  Icons.arrow_drop_down_outlined,
+                                ),
+                                iconSize: 14,
+                                iconEnabledColor: Colors.white,
+                                iconDisabledColor: Colors.grey,
+                              ),
+                              dropdownStyleData: DropdownStyleData(
+                                maxHeight: 200,
+                                width: 200,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(14),
+                                  // color: Colors.redAccent,
+                                ),
+                                offset: const Offset(-20, 0),
+                                scrollbarTheme: ScrollbarThemeData(
+                                  radius: const Radius.circular(40),
+                                  thickness:
+                                      MaterialStateProperty.all<double>(6),
+                                  thumbVisibility:
+                                      MaterialStateProperty.all<bool>(true),
+                                ),
+                              ),
+                              menuItemStyleData: const MenuItemStyleData(
+                                height: 40,
+                                padding: EdgeInsets.only(left: 14, right: 14),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 4),
+                            child: Text(
+                              "Pincode",
+                              style: Style.fadeTextStyle(
+                                fontSize: 10,
+                              ),
+                            ),
+                          ),
+                          DropdownButtonHideUnderline(
+                            child: DropdownButton2<String>(
+                              isExpanded: true,
+                              hint: Row(
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      'Select Pincode',
+                                      style: Style.fadeTextStyle(
+                                          color: Clr.white1),
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              items: pincodeList
+                                  .map(
+                                      (String item) => DropdownMenuItem<String>(
+                                            value: item,
+                                            child: Text(
+                                              item,
+                                              style: Style.fadeTextStyle(
+                                                color: Clr.white1,
+                                              ),
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                          ))
+                                  .toList(),
+                              value: selectedPincode,
+                              onChanged: (String? value) {
+                                setState(() {
+                                  selectedPincode = value;
+                                });
+                              },
+                              buttonStyleData: ButtonStyleData(
+                                padding:
+                                    const EdgeInsets.only(left: 14, right: 14),
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    width: 0.5,
+                                    color: Clr.grey,
+                                  ),
+                                ),
+                                elevation: 2,
+                              ),
+                              iconStyleData: const IconStyleData(
+                                icon: Icon(
+                                  Icons.arrow_drop_down_outlined,
+                                ),
+                                iconSize: 14,
+                                iconEnabledColor: Colors.white,
+                                iconDisabledColor: Colors.grey,
+                              ),
+                              dropdownStyleData: DropdownStyleData(
+                                maxHeight: 200,
+                                width: 200,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(14),
+                                  // color: Colors.redAccent,
+                                ),
+                                offset: const Offset(-20, 0),
+                                scrollbarTheme: ScrollbarThemeData(
+                                  radius: const Radius.circular(40),
+                                  thickness:
+                                      MaterialStateProperty.all<double>(6),
+                                  thumbVisibility:
+                                      MaterialStateProperty.all<bool>(true),
+                                ),
+                              ),
+                              menuItemStyleData: const MenuItemStyleData(
+                                height: 40,
+                                padding: EdgeInsets.only(left: 14, right: 14),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Text(
+                    'Select Dealer',
+                    style: Style.fadeTextStyle(
+                        fontSize: 16,
+                        color: Clr.white,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                DropdownButtonHideUnderline(
+                  child: DropdownButton2<String>(
+                    isExpanded: true,
+                    hint: Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            'Select Dealer',
+                            style: Style.fadeTextStyle(
+                              color: Clr.white1,
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      ],
+                    ),
+                    items: dealerList
+                        .map((String item) => DropdownMenuItem<String>(
+                              value: item,
+                              child: Text(
+                                item,
+                                style: Style.fadeTextStyle(
+                                  color: Clr.white1,
+                                ),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ))
+                        .toList(),
+                    value: selectedDealer,
+                    onChanged: (String? value) {
+                      setState(() {
+                        selectedDealer = value;
+                      });
+                    },
+                    buttonStyleData: ButtonStyleData(
+                      padding: const EdgeInsets.only(left: 14, right: 14),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          width: 0.5,
+                          color: Clr.grey,
+                        ),
+                      ),
+                      elevation: 2,
+                    ),
+                    iconStyleData: const IconStyleData(
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 14,
+                      iconEnabledColor: Colors.white,
+                      iconDisabledColor: Colors.grey,
+                    ),
+                    dropdownStyleData: DropdownStyleData(
+                      maxHeight: 200,
+                      width: 200,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        // color: Colors.redAccent,
+                      ),
+                      offset: const Offset(-20, 0),
+                      scrollbarTheme: ScrollbarThemeData(
+                        radius: const Radius.circular(40),
+                        thickness: MaterialStateProperty.all<double>(6),
+                        thumbVisibility: MaterialStateProperty.all<bool>(true),
+                      ),
+                    ),
+                    menuItemStyleData: const MenuItemStyleData(
+                      height: 40,
+                      padding: EdgeInsets.only(left: 14, right: 14),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+
+            const SizedBox(
+              height: 50,
+            ),
             Align(
               alignment: Alignment.bottomRight,
               child: SizedBox(
@@ -462,6 +891,9 @@ class _ScheduleServiceScreenState extends State<ScheduleServiceScreen> {
                           color: Clr.white),
                     )),
               ),
+            ),
+            const SizedBox(
+              height: 50,
             )
           ]),
         ),

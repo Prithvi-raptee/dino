@@ -18,6 +18,8 @@ class Clr {
 
   static const Color red = Colors.red;
   static const Color yellow = Colors.yellow;
+  static const Color orange = Colors.orange;
+  static const Color pending = Color(0xFFD2A53D);
   static const Color green = Colors.green;
-  static const Color green1r = Color(0xFF7FFF43);
+  static const Color green1 = Color(0xFF7FFF43);
 }

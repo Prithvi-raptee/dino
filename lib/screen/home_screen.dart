@@ -327,15 +327,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     )
                   ],
                 ),
-                Expanded(
-                  child: MapplsMap(
-                    initialCameraPosition: _kInitialPosition,
-                    myLocationEnabled: true,
-                    myLocationTrackingMode: MyLocationTrackingMode.NoneCompass,
-                    onMapClick: (point, latlng) =>
-                        {Fluttertoast.showToast(msg: latlng.toString())},
-                  ),
-                )
+                // Expanded(
+                //   child: MapplsMap(
+                //     initialCameraPosition: _kInitialPosition,
+                //     myLocationEnabled: true,
+                //     myLocationTrackingMode: MyLocationTrackingMode.NoneCompass,
+                //     onMapClick: (point, latlng) =>
+                //         {Fluttertoast.showToast(msg: latlng.toString())},
+                //   ),
+                // )
               ]),
             )
           ],

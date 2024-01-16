@@ -259,18 +259,18 @@ class BarChartSample2State extends State<BarChartSample2> {
           toY: y1,
           fromY: y1 - 10,
           color: widget.leftBarColor,
-          width: width,
+          width: 2, // Adjust this value to make the bar thinner
         ),
         BarChartRodData(
           toY: y2,
           fromY: y2 - 15,
           color: widget.rightBarColor,
-          width: width,
+          width: 2, // Adjust this value to make the bar thinner
         ),
         BarChartRodData(
           toY: y2 + 40,
           color: Clr.green,
-          width: width,
+          width: 2, // Adjust this value to make the bar thinner
         ),
       ],
     );

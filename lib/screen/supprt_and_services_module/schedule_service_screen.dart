@@ -107,25 +107,27 @@ class _ScheduleServiceScreenState extends State<ScheduleServiceScreen> {
                               color: selectedService == "general"
                                   ? selectedColor
                                   : Clr.grey1),
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "General Service",
-                                  style: Style.fadeTextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
-                                      color: Clr.white1),
-                                ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                Text(
-                                  "Periodic services so that we take care of your bike",
-                                  style: Style.fadeTextStyle(
-                                      color: Clr.white1, fontSize: 10),
-                                )
-                              ]),
+                          child: SingleChildScrollView(
+                            child:  Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "General Service",
+                                    style: Style.fadeTextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold,
+                                        color: Clr.white1),
+                                  ),
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    "Periodic services so that we take care of your bike",
+                                    style: Style.fadeTextStyle(
+                                        color: Clr.white1, fontSize: 10),
+                                  )
+                                ]),
+                          ),
                         ),
                       ),
                     ),

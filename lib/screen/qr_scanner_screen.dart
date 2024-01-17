@@ -101,7 +101,7 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
                                       return Column(
                                         children: [
                                           Icon(
-                                            snapshot.data!
+                                            snapshot.hasData
                                                 ? Icons.flash_off
                                                 : Icons.flash_on,
                                             color: Clr.white,

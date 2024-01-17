@@ -10,6 +10,8 @@ import 'package:location/location.dart';
 import 'package:mappls_gl/mappls_gl.dart';
 import 'package:mappls_place_widget/mappls_place_widget.dart';
 
+import '../component/appbar.dart';
+
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
 
@@ -53,10 +55,10 @@ class _MapScreenState extends State<MapScreen> {
     target: LatLng(13.017885, 80.173810),
     zoom: 14.0,
   );
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: appBarToHome(context, "Map"),
       body: Stack(
         children: [
           MapplsMap(
@@ -292,7 +294,7 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   /// Adds an asset image to the currently displayed style
-  Future<void> addImageFromAsset(String name, String assetName) async {
+  addImageFromAsset(String name, String assetName) async {
     final ByteData bytes = await rootBundle.load(assetName);
     final Uint8List list = bytes.buffer.asUint8List();
     return mapController.addImage(name, list);

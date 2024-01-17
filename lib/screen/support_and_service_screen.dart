@@ -17,7 +17,7 @@ class SupportAndServiceScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Clr.black,
-        appBar: appBar(context, "Support and Services"),
+        appBar: appBarToHome(context, "Support and Services"),
         body: Column(
           children: [
             Padding(

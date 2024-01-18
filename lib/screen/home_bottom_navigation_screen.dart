@@ -7,6 +7,7 @@ import 'package:dino/screen/support_and_service_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -78,7 +79,6 @@ class _HomeBottomNavigationScreenState
               ),
             ),
             label: 'Support',
-
           ),
           const NavigationDestination(
             icon: SizedBox(
@@ -101,6 +101,7 @@ class _HomeBottomNavigationScreenState
         },
         labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
         animationDuration: const Duration(milliseconds: 1500),
+        indicatorColor: Clr.grey,
       ),
     );
   }

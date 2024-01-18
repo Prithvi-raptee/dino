@@ -10,7 +10,7 @@ import 'package:dino/secrete/map_my_india_key.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+
 import 'package:mappls_gl/mappls_gl.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -36,7 +36,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     MapMyIndiaKey.setKey();

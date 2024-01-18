@@ -8,9 +8,6 @@ import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:location/location.dart';
 import 'package:mappls_gl/mappls_gl.dart';
-import 'package:mappls_place_widget/mappls_place_widget.dart';
-
-import '../component/appbar.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -58,7 +55,6 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarToHome(context, "Map"),
       body: Stack(
         children: [
           MapplsMap(

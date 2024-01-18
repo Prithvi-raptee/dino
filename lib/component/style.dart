@@ -39,7 +39,7 @@ class Style {
 
   static TextStyle appTitleTextStyle(
           {double fontSize = 18,
-          String fontFamily = AppFont.nebula,
+          String fontFamily = AppFont.sen,
           Color color = Clr.white,
           FontWeight fontWeight = FontWeight.normal}) =>
       TextStyle(

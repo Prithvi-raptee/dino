@@ -52,7 +52,7 @@ class AppDrawer extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 20,
                         fontStyle: FontStyle.normal,
-                        fontFamily: AppFont.sen,
+                        fontFamily: AppFont.nebula,
 
                         // fontWeight: FontWeight.bold
                       ),

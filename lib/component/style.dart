@@ -35,10 +35,10 @@ class Style {
     );
   }
 
-  // App heading TeztStyle
+  // App heading TextStyle
 
   static TextStyle appTitleTextStyle(
-          {double fontSize = 24,
+          {double fontSize = 18,
           String fontFamily = AppFont.sen,
           Color color = Clr.white,
           FontWeight fontWeight = FontWeight.normal}) =>

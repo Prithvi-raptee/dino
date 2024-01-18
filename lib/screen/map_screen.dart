@@ -8,7 +8,6 @@ import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:location/location.dart';
 import 'package:mappls_gl/mappls_gl.dart';
-import 'package:mappls_place_widget/mappls_place_widget.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -53,7 +52,6 @@ class _MapScreenState extends State<MapScreen> {
     target: LatLng(13.017885, 80.173810),
     zoom: 14.0,
   );
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -10,8 +10,8 @@ class RaveScreen extends StatefulWidget {
 class _RaveScreenState extends State<RaveScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
+    return Scaffold(
+      body: const Center(
         child: Text("This is Rave Screen"),
       ),
     );

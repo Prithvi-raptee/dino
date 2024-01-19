@@ -184,7 +184,36 @@ Feel free to provide more details or elaborate on specific points based on your 
 
 
 ## Dependencies
-List and describe the major dependencies used in the project.
+The list of all the dependencies used in this app are:
+```yaml
+ cupertino_icons: ^1.0.2  
+ otp_text_field: ^1.1.3  
+ persistent_bottom_nav_bar: ^5.0.2  
+ carousel_slider: ^4.2.1  
+ floating_bottom_navigation_bar: ^1.5.2  
+ percent_indicator: ^4.2.3  
+ qr_code_scanner: ^1.0.1  
+ fl_chart: ^0.66.0  
+ sticky_grouped_list: ^3.1.0  
+ intl: ^0.19.0  
+ custom_radio_grouped_button: ^2.2.1  
+ flutter_rating_bar: ^4.0.1  
+ banner_carousel: ^1.2.1  
+ dropdown_button2: ^2.3.9  
+ # mapmyindia_gl: any,  
+ mappls_gl: ^1.0.1  
+ location: ^5.0.3  
+ fluttertoast: ^8.2.1  
+ mappls_place_widget: ^1.0.0  
+ mappls_direction_plugin: ^1.0.0  
+ mappls_nearby_plugin: ^1.0.0  
+ turf: ^0.0.7  
+ model_viewer_plus: ^1.7.0
+```
+> [!NOTE]
+> Always ensure that the app and its packages have minSdkVersion as 21.   
+> Some of the packages used above are not compatible with minSdkVersion lesser than 21.
+> Ensure that you perform `pub run` after adding any dependency to the pubspec.yaml file.
 
 ## Development
 

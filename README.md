@@ -101,9 +101,7 @@ The main purpose of this app is to assist the user in case of any need and show 
 > Check your pubspec.yaml files for some changes.
 > Add necessary changes to the android_manifest.xml, gradle files etc by looking into the respective package details mentioned in pub.dev.
 
-## Folder Structure
-# Dino Flutter App Folder Structure
-
+# Folder Structure
 The Dino app structure is organized into 5 directories and a main.dart under the `lib` folder:
 
 - **component**
@@ -215,16 +213,162 @@ The list of all the dependencies used in this app are:
 > Some of the packages used above are not compatible with minSdkVersion lesser than 21.
 > Ensure that you perform `pub run` after adding any dependency to the pubspec.yaml file.
 
-## Development
+# Development
 
-### Coding Guidelines
-Specify coding standards and best practices for contributors.
+## Coding Guidelines
+Welcome to the Dino Flutter App coding guidelines. These guidelines aim to ensure consistency, readability, and maintainability of the codebase. Please follow these conventions when contributing to the project.
 
-### Testing
-Describe how to run tests and provide sample test cases.
+### Table of Contents
+1. [File Organization](#file-organization)
+2. [Naming Conventions](#naming-conventions)
+3. [Formatting](#formatting)
+4. [Comments](#comments)
+5. [State Management](#state-management)
+6. [Error Handling](#error-handling)
+7. [Testing](#testing)
 
-### Contributing
-Guidelines for developers who want to contribute to the project.
+## File Organization
+
+1. **Lib Folder Structure:**
+   - Keep a clean and organized folder structure as outlined in the [Folder Structure](#folder-structure) section of the documentation.
+   - Group related files together in appropriate directories.
+
+2. **Imports:**
+   - Only import the packages you need.
+   - Try to hard code as much as possible to decrease the frequency of imports and packages to reduce app size.
+   - Group imports into three sections: Dart imports, third-party packages, and local project imports.
+
+## Naming Conventions
+
+1. **File Names:**
+   - Use camelCase for file names.
+   - Name files according to their content or purpose.
+
+2. **Variable and Function Names:**
+   - Use camelCase for variable and function names.
+   - Choose descriptive names that convey the purpose of the variable or function.
+
+3. **Class Names:**
+   - Use UpperCamelCase for class names.
+   - Make class names clear and descriptive.
+
+## Formatting
+
+1. **Indentation:**
+   - Use 2 spaces for indentation.
+
+2. **Line Length:**
+   - Aim for lines of code to be no longer than 80 characters.
+   - Break lines or use appropriate formatting to maintain readability.
+
+3. **Spacing:**
+   - Use a single space between operators and after commas.
+   - Add a space between the `if`, `else`, `for`, and `while` keywords and the opening parenthesis.
+
+4. **Brackets:**
+   - Place opening brackets on the same line as the statement.
+   - Place closing brackets on a new line.
+
+## Comments
+
+1. **Function Comments:**
+   - Add comments for complex functions or logic to explain the purpose and important steps.
+
+2. **Code Comments:**
+   - Use comments sparingly.
+   - Comments should provide context or explain why something is done in a certain way.
+
+## State Management
+
+1. **Provider Pattern:**
+   - Use the Provider pattern for state management, as it is the preferred approach in this project.
+
+2. **Bloc Pattern:**
+   - If needed, consider using the BLoC pattern for more complex state management scenarios.
+
+## Error Handling
+
+1. **Use Try-Catch:**
+   - Always use `try-catch` blocks when handling potentially error-prone operations, such as network requests.
+
+2. **Throw Meaningful Exceptions:**
+   - Throw exceptions with clear and meaningful messages.
+   - Include relevant information about the error.
+
+## Testing
+
+1. **Unit Tests:**
+   - Write unit tests for critical and complex functions.
+   - Ensure all unit tests pass before merging code.
+
+2. **Widget Tests:**
+   - Write widget tests to verify the behavior of UI components.
+   - Test edge cases and different scenarios.
+
+Follow these guidelines to maintain a consistent and high-quality codebase. Thank you for your contributions!
+
+### Unit Tests
+
+1. **Command Line:**
+   - To run all unit tests, use the following command:
+     ```bash
+     flutter test
+     ```
+   - This command runs all the tests located in the `test` directory.
+
+2. **Test Specific File:**
+   - To run tests from a specific file, use:
+     ```bash
+     flutter test test/path/to/test_file.dart
+     ```
+
+### Widget Tests
+
+1. **Command Line:**
+   - To run widget tests, use:
+     ```bash
+     flutter test/widget_test.dart
+     ```
+
+2. **Test Specific Widget:**
+   - To run tests for a specific widget, use:
+     ```bash
+     flutter test/widget_test.dart testWidgets('Widget Test', (WidgetTester tester) async {
+       // Your test logic here
+     });
+     ```
+
+## Contributing
+
+Welcome to the Dino Flutter App project! We appreciate your interest in contributing. Before you start, please take a moment to review the following guidelines to ensure a smooth and collaborative contribution process.
+
+### Code of Conduct
+
+Please review our [Code of Conduct](./CODE_OF_CONDUCT.md) before contributing. Ensure that all interactions within the project adhere to this code.
+
+### How to Contribute
+
+1. Fork the Repository: Click on the "Fork" button at the top right of the [Dino Flutter App repository](https://github.com/yourusername/dino).
+
+2. Clone your Fork: Clone the forked repository to your local machine using the following command:
+   ```bash
+	git clone https://github.com/yourusername/dino.git
+   ```
+3. Create a Branch: Create a new branch for your contribution:
+   ```bash
+	  git clone https://github.com/yourusername/dino.git
+  4. Make Changes: Implement your changes and ensure that your code follows the project's coding guidelines.
+    
+5.  Run Tests: Before submitting a pull request, make sure to run tests to verify that your changes do not introduce issues.
+    
+6.  Commit Changes: Commit your changes with a clear and concise commit message:
+```bash
+	git clone https://github.com/yourusername/dino.git
+   ```
+ 7. Push Changes: Push your changes to your forked repository:
+```bash
+	git push origin feature/your-feature  
+   ```
 
 ## Features
 Document the major features of the app. Provide code snippets or examples.

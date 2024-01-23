@@ -12,7 +12,7 @@ class _RaveScreenState extends State<RaveScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: const Center(
-        child: Text("This is Rave Screen"),
+        child: Text("This is rave screen"),
       ),
     );
   }

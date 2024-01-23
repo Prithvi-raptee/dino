@@ -1,5 +1,6 @@
 import 'package:dino/component/style.dart';
 import 'package:dino/constant/clr.dart';
+import 'package:dino/screen/explore/exploreLandingPageNavigation.dart';
 import 'package:flutter/material.dart';
 
 import '../screen/home_bottom_navigation_screen.dart';
@@ -35,6 +36,18 @@ appBarToHome(BuildContext context, String title) {
     ),
     centerTitle: true,
     backgroundColor: Clr.black,
+    title: Text(
+      title,
+      style: Style.appTitleTextStyle(),
+    ),
+  );
+}
+
+exploreAppBar(BuildContext context, String title) {
+  return AppBar(
+    centerTitle: true,
+    backgroundColor: Colors.transparent,
+
     title: Text(
       title,
       style: Style.appTitleTextStyle(),

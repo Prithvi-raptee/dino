@@ -1,4 +1,5 @@
 import 'package:dino/constant/clr.dart';
+import 'package:dino/screen/explore/exploreLandingPageNavigation.dart';
 import 'package:dino/screen/otp_verification_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -49,6 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
+
               Container(
                   margin: const EdgeInsets.only(bottom: 50),
                   padding: const EdgeInsets.only(left: 30, right: 30),

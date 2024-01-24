@@ -4,10 +4,13 @@ import 'package:dino/constant/app_font.dart';
 import 'package:dino/constant/clr.dart';
 import 'package:dino/screen/supprt_and_services_module/schedule_service_slot_screen.dart';
 import 'package:dino/screen/supprt_and_services_module/service_booked_confirmation_screen.dart';
+import 'package:dino/screen/supprt_and_services_module/service_booking_confirmation_details_screen.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
+import '../../constant/directory.dart';
 
 class ScheduleServiceScreen extends StatefulWidget {
   const ScheduleServiceScreen({super.key});
@@ -73,25 +76,88 @@ class _ScheduleServiceScreenState extends State<ScheduleServiceScreen> {
 
   String? selectedDealer;
 
+  onStepTapped(int value) {
+    setState(() {
+      _currentStep = value;
+    });
+  }
+
+  Widget controlsBuilder(context, details) {
+    return Padding(
+      padding: const EdgeInsets.all(18.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(backgroundColor: Clr.teal2),
+            onPressed: details.onStepContinue,
+            child:
+                _currentStep == 5 ? const Text("Submit") : const Text("Next"),
+          ),
+          OutlinedButton(
+              style: OutlinedButton.styleFrom(backgroundColor: Clr.black1),
+              onPressed: details.onStepCancel,
+              child: const Text("Back")),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Clr.black,
       appBar: appBarToHome(context, "Support and Services"),
-
       body: SafeArea(
         child: Theme(
           data: ThemeData(
-              canvasColor: Colors.black87,
-              colorScheme: Theme.of(context).colorScheme.copyWith(
-                primary: Colors.white60,
-                background: Clr.teal2,
-                secondary: Colors.white10,
-              ),),
+            canvasColor: Colors.black87,
+            colorScheme: Theme.of(context).colorScheme.copyWith(
+                  primary: Colors.white60,
+                  background: Clr.teal2,
+                  secondary: Colors.white10,
+                ),
+          ),
           child: Stepper(
+            margin: const EdgeInsets.only(left: 45),
             currentStep: _currentStep,
             onStepContinue: () {
-              if (_currentStep < 7) {
+              if (_currentStep == 5) {
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) =>
+                //     const ServiceBookingConformationScreen(),
+                //   ),
+                // );
+                showDialog(
+                  context: context,
+                  builder: (_) => AlertDialog(
+                    elevation: 24.0,
+                    backgroundColor: Clr.black,
+                    title: const Text("SUBMIT?"),
+                    content: const Text("Are you sure you want to submit?"),
+                    actions: <Widget>[
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pop(context, 'Cancel');
+                        },
+                        child: const Text('Cancel'),
+                      ),
+                      TextButton(
+                        onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const ServiceBookingConformationScreen(),
+                          ),
+                        ),
+                        child: const Text('OK'),
+                      ),
+                    ],
+                  ),
+                );
+              } else if (_currentStep < 5) {
                 if (_currentStep == 0) {
                   if (_formKey.currentState!.validate()) {
                     setState(() {
@@ -103,15 +169,26 @@ class _ScheduleServiceScreenState extends State<ScheduleServiceScreen> {
                     _currentStep += 1;
                   });
                 }
+              } else {
+                // Navigate to ServiceBookingConfirmationDetailsScreen() when Done is pressed
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        const ServiceBookingConformationScreen(),
+                  ),
+                );
               }
             },
             onStepCancel: _currentStep == 0
                 ? null
                 : () {
-              setState(() {
-                _currentStep -= 1;
-              });
-            },
+                    setState(() {
+                      _currentStep -= 1;
+                    });
+                  },
+            onStepTapped: onStepTapped,
+            controlsBuilder: controlsBuilder,
             steps: [
               Step(
                 title: const Text('Select type of services'),
@@ -140,24 +217,26 @@ class _ScheduleServiceScreenState extends State<ScheduleServiceScreen> {
                                         : Clr.grey1),
                                 child: SingleChildScrollView(
                                   child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          "General Service",
-                                          style: Style.fadeTextStyle(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.bold,
-                                              color: Clr.white1),
-                                        ),
-                                        const SizedBox(
-                                          height: 5,
-                                        ),
-                                        Text(
-                                          "Periodic services so that we take care of your bike",
-                                          style: Style.fadeTextStyle(
-                                              color: Clr.white1, fontSize: 10),
-                                        )
-                                      ]),
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "General Service",
+                                        style: Style.fadeTextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.bold,
+                                            color: Clr.white1),
+                                      ),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                      Text(
+                                        "Periodic services so that we take care of your bike",
+                                        style: Style.fadeTextStyle(
+                                            color: Clr.white1, fontSize: 10),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -181,7 +260,8 @@ class _ScheduleServiceScreenState extends State<ScheduleServiceScreen> {
                                         : Clr.grey1),
                                 child: SingleChildScrollView(
                                   child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           "Specific Issue",
@@ -221,7 +301,8 @@ class _ScheduleServiceScreenState extends State<ScheduleServiceScreen> {
                                         ? selectedColor
                                         : Clr.grey1),
                                 child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         "Accident Service",
@@ -443,24 +524,24 @@ class _ScheduleServiceScreenState extends State<ScheduleServiceScreen> {
                                 Expanded(
                                   child: Text(
                                     'Select State',
-                                    style: Style.fadeTextStyle(color: Clr.white1),
+                                    style:
+                                        Style.fadeTextStyle(color: Clr.white1),
                                     overflow: TextOverflow.ellipsis,
                                   ),
                                 ),
                               ],
                             ),
                             items: stateList
-                                .map((String item) =>
-                                DropdownMenuItem<String>(
-                                  value: item,
-                                  child: Text(
-                                    item,
-                                    style: Style.fadeTextStyle(
-                                      color: Clr.white1,
-                                    ),
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ))
+                                .map((String item) => DropdownMenuItem<String>(
+                                      value: item,
+                                      child: Text(
+                                        item,
+                                        style: Style.fadeTextStyle(
+                                          color: Clr.white1,
+                                        ),
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ))
                                 .toList(),
                             value: selectedState,
                             onChanged: (String? value) {
@@ -469,7 +550,8 @@ class _ScheduleServiceScreenState extends State<ScheduleServiceScreen> {
                               });
                             },
                             buttonStyleData: ButtonStyleData(
-                              padding: const EdgeInsets.only(left: 14, right: 14),
+                              padding:
+                                  const EdgeInsets.only(left: 14, right: 14),
                               decoration: BoxDecoration(
                                 border: Border.all(
                                   width: 0.5,
@@ -498,7 +580,7 @@ class _ScheduleServiceScreenState extends State<ScheduleServiceScreen> {
                                 radius: const Radius.circular(40),
                                 thickness: MaterialStateProperty.all<double>(6),
                                 thumbVisibility:
-                                MaterialStateProperty.all<bool>(true),
+                                    MaterialStateProperty.all<bool>(true),
                               ),
                             ),
                             menuItemStyleData: const MenuItemStyleData(
@@ -543,8 +625,7 @@ class _ScheduleServiceScreenState extends State<ScheduleServiceScreen> {
                                     ],
                                   ),
                                   items: cityList
-                                      .map(
-                                          (String item) =>
+                                      .map((String item) =>
                                           DropdownMenuItem<String>(
                                             value: item,
                                             child: Text(
@@ -563,8 +644,8 @@ class _ScheduleServiceScreenState extends State<ScheduleServiceScreen> {
                                     });
                                   },
                                   buttonStyleData: ButtonStyleData(
-                                    padding:
-                                    const EdgeInsets.only(left: 14, right: 14),
+                                    padding: const EdgeInsets.only(
+                                        left: 14, right: 14),
                                     decoration: BoxDecoration(
                                       border: Border.all(
                                         width: 0.5,
@@ -592,14 +673,15 @@ class _ScheduleServiceScreenState extends State<ScheduleServiceScreen> {
                                     scrollbarTheme: ScrollbarThemeData(
                                       radius: const Radius.circular(40),
                                       thickness:
-                                      MaterialStateProperty.all<double>(6),
+                                          MaterialStateProperty.all<double>(6),
                                       thumbVisibility:
-                                      MaterialStateProperty.all<bool>(true),
+                                          MaterialStateProperty.all<bool>(true),
                                     ),
                                   ),
                                   menuItemStyleData: const MenuItemStyleData(
                                     height: 40,
-                                    padding: EdgeInsets.only(left: 14, right: 14),
+                                    padding:
+                                        EdgeInsets.only(left: 14, right: 14),
                                   ),
                                 ),
                               ),
@@ -638,8 +720,7 @@ class _ScheduleServiceScreenState extends State<ScheduleServiceScreen> {
                                     ],
                                   ),
                                   items: pincodeList
-                                      .map(
-                                          (String item) =>
+                                      .map((String item) =>
                                           DropdownMenuItem<String>(
                                             value: item,
                                             child: Text(
@@ -658,8 +739,8 @@ class _ScheduleServiceScreenState extends State<ScheduleServiceScreen> {
                                     });
                                   },
                                   buttonStyleData: ButtonStyleData(
-                                    padding:
-                                    const EdgeInsets.only(left: 14, right: 14),
+                                    padding: const EdgeInsets.only(
+                                        left: 14, right: 14),
                                     decoration: BoxDecoration(
                                       border: Border.all(
                                         width: 0.5,
@@ -687,14 +768,15 @@ class _ScheduleServiceScreenState extends State<ScheduleServiceScreen> {
                                     scrollbarTheme: ScrollbarThemeData(
                                       radius: const Radius.circular(40),
                                       thickness:
-                                      MaterialStateProperty.all<double>(6),
+                                          MaterialStateProperty.all<double>(6),
                                       thumbVisibility:
-                                      MaterialStateProperty.all<bool>(true),
+                                          MaterialStateProperty.all<bool>(true),
                                     ),
                                   ),
                                   menuItemStyleData: const MenuItemStyleData(
                                     height: 40,
-                                    padding: EdgeInsets.only(left: 14, right: 14),
+                                    padding:
+                                        EdgeInsets.only(left: 14, right: 14),
                                   ),
                                 ),
                               ),
@@ -735,11 +817,13 @@ class _ScheduleServiceScreenState extends State<ScheduleServiceScreen> {
                                     context: context,
                                     initialDate: DateTime.now(),
                                     firstDate: DateTime.now(),
-                                    lastDate: DateTime.now().add(const Duration(days: 30)),
+                                    lastDate: DateTime.now()
+                                        .add(const Duration(days: 30)),
                                   );
 
                                   // Update selected date
-                                  if (pickedDate != null && pickedDate != selectedDate) {
+                                  if (pickedDate != null &&
+                                      pickedDate != selectedDate) {
                                     setState(() {
                                       selectedDate = pickedDate;
                                     });
@@ -783,7 +867,8 @@ class _ScheduleServiceScreenState extends State<ScheduleServiceScreen> {
                                   );
 
                                   // Update selected time
-                                  if (pickedTime != null && pickedTime != selectedTime) {
+                                  if (pickedTime != null &&
+                                      pickedTime != selectedTime) {
                                     setState(() {
                                       selectedTime = pickedTime;
                                     });
@@ -804,15 +889,6 @@ class _ScheduleServiceScreenState extends State<ScheduleServiceScreen> {
                           ],
                         ),
                       ]),
-                ),
-              ),
-              // Step 7
-              const Step(
-                title: Text('Step 7: Last Step'),
-                content: Column(
-                  children: [
-                    // Add form fields or other widgets for the last step
-                  ],
                 ),
               ),
             ],

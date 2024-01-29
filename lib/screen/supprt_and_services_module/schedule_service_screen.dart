@@ -119,17 +119,11 @@ class _ScheduleServiceScreenState extends State<ScheduleServiceScreen> {
                 ),
           ),
           child: Stepper(
+            physics: const PageScrollPhysics(),
             margin: const EdgeInsets.only(left: 45),
             currentStep: _currentStep,
             onStepContinue: () {
               if (_currentStep == 5) {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) =>
-                //     const ServiceBookingConformationScreen(),
-                //   ),
-                // );
                 showDialog(
                   context: context,
                   builder: (_) => AlertDialog(

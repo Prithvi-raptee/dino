@@ -22,4 +22,22 @@ class Clr {
   static const Color pending = Color(0xFFD2A53D);
   static const Color green = Colors.green;
   static const Color green1 = Color(0xFF7FFF43);
+
+  // #Prithvi
+  static const Color blue202 = Color(0xFF3CBAFD);
+  static const Color green202 = Color(0xFF00EA41);
+  static const Color yellow202 = Color(0xFFFFE500);
+  static const Color pink202 = Color(0xFFFF337D);
+  static const Color purple202 = Color(0xFF9655FF);
+  static const Color lightpink202 = Color(0xFFFC5AFF);
+  static const Color greybg202 = Color(0xFF272727);
+  static const Color newblue202 = Color(0xFF04F0FF);
+  static const Color orange202 = Color(0xFFFF6B00);
+
+
+
+
+
+
+
 }

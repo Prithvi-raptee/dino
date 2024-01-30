@@ -1,25 +1,29 @@
+import 'package:dino/screen/explore/TestSupportServiceScreen1.dart';
 import 'package:flutter/material.dart';
 
-import '../../component/appbar.dart';
 import '../../component/elevatedCardButton.dart';
 import '../../component/elevatedCardButton2.dart';
+import '../../component/elevatedCardButton3.dart';
 import '../../component/style.dart';
 import '../../constant/clr.dart';
 
 import 'package:carousel_slider/carousel_slider.dart';
 
-class SettingsTest1 extends StatefulWidget {
-  const SettingsTest1({super.key});
+import 'TestSettingsPage.dart';
+
+class TestSupportServiceScreen extends StatefulWidget {
+  const TestSupportServiceScreen({super.key});
 
   @override
-  State<SettingsTest1> createState() => _SettingsTest1State();
+  State<TestSupportServiceScreen> createState() => _TestSupportServiceScreenState();
 }
 
-class _SettingsTest1State extends State<SettingsTest1> {
+class _TestSupportServiceScreenState extends State<TestSupportServiceScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(context, "Support and Service"),
+      backgroundColor: Clr.black,
+
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -29,8 +33,8 @@ class _SettingsTest1State extends State<SettingsTest1> {
                 borderRadius: const BorderRadius.all(Radius.circular(15)),
                 gradient: LinearGradient(
                   colors: [
-                    Clr.grey.withOpacity(0.5),
-                    Clr.grey.withOpacity(0.1),
+                    Clr.greybg202.withOpacity(0.9),
+                    Clr.greybg202.withOpacity(0.5),
                   ],
                   begin: AlignmentDirectional.topCenter,
                   end: AlignmentDirectional.bottomCenter,
@@ -54,7 +58,7 @@ class _SettingsTest1State extends State<SettingsTest1> {
                     ),
                     CarouselSlider.builder(
                         options: CarouselOptions(
-                          // enlargeCenterPage: true,
+                            // enlargeCenterPage: true,
                             pageSnapping: true,
                             aspectRatio: 18/9,
                             viewportFraction: 0.77,
@@ -67,7 +71,7 @@ class _SettingsTest1State extends State<SettingsTest1> {
                             enableInfiniteScroll: true),
                         itemCount: 3,
                         itemBuilder: (BuildContext context, int itemIndex,
-                            int pageViewIndex) =>
+                                int pageViewIndex) =>
                             serviceScheduleItem(context)),
                     Padding(
                       padding: const EdgeInsets.only(top: 5),
@@ -75,12 +79,12 @@ class _SettingsTest1State extends State<SettingsTest1> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: ["1", "2", "3"]
                             .map((e) => const Padding(
-                          padding: EdgeInsets.all(5.0),
-                          child: Icon(
-                            Icons.circle,
-                            size: 10,
-                          ),
-                        ))
+                                  padding: EdgeInsets.all(5.0),
+                                  child: Icon(
+                                    Icons.circle,
+                                    size: 10,
+                                  ),
+                                ))
                             .toList(),
                       ),
                     )
@@ -97,8 +101,8 @@ class _SettingsTest1State extends State<SettingsTest1> {
                     borderRadius: const BorderRadius.all(Radius.circular(15)),
                     gradient: LinearGradient(
                       colors: [
-                        Clr.grey.withOpacity(0.5),
-                        Clr.grey.withOpacity(0.1),
+                        Clr.greybg202.withOpacity(0.9),
+                        Clr.greybg202.withOpacity(0.5),
                       ],
                       begin: AlignmentDirectional.topCenter,
                       end: AlignmentDirectional.bottomCenter,
@@ -119,7 +123,7 @@ class _SettingsTest1State extends State<SettingsTest1> {
                             child: ElevatedCardButton(
                               icon: Icons.call,
                               text: 'Roadside Assistance',
-                              buttonColor: Clr.greybg202,
+                              buttonColor: Clr.blue202,
                               onPressed: () {
                                 // Handle button press
                               },
@@ -132,7 +136,7 @@ class _SettingsTest1State extends State<SettingsTest1> {
                             child: ElevatedCardButton(
                               icon: Icons.chat_outlined,
                               text: 'Live Support Chat',
-                              buttonColor: Clr.greybg202,
+                              buttonColor: Clr.pink202,
                               onPressed: () {
                                 // Handle button press
                               },
@@ -153,7 +157,7 @@ class _SettingsTest1State extends State<SettingsTest1> {
                             child: ElevatedCardButton(
                               icon: Icons.settings,
                               text: 'Schedule Service',
-                              buttonColor: Clr.greybg202,
+                              buttonColor: Clr.purple202,
                               onPressed: () {
                                 // Handle button press
                               },
@@ -166,7 +170,7 @@ class _SettingsTest1State extends State<SettingsTest1> {
                             child: ElevatedCardButton(
                               icon: Icons.call,
                               text: 'Call Support',
-                              buttonColor: Clr.greybg202,
+                              buttonColor: Clr.green,
                               onPressed: () {
                                 // Handle button press
                               },
@@ -196,7 +200,7 @@ class _SettingsTest1State extends State<SettingsTest1> {
                       text: 'FAQ',
                       iconColor: Clr.white,
                       textColor: Clr.white,
-                      cardColor: Clr.greybg202,
+                      cardColor: Clr.grey2,
                       onPressed: () {
                         // Handle button press
                       },
@@ -206,8 +210,13 @@ class _SettingsTest1State extends State<SettingsTest1> {
                       text: 'Service History',
                       iconColor: Clr.white,
                       textColor: Clr.white,
-                      cardColor: Clr.greybg202,
+                      cardColor: Clr.grey2,
                       onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                const SettingScreenTest()));
                         // Handle button press
                       },
                     ),
@@ -216,8 +225,13 @@ class _SettingsTest1State extends State<SettingsTest1> {
                       text: 'Tickets',
                       iconColor: Clr.white,
                       textColor: Clr.white,
-                      cardColor: Clr.greybg202,
+                      cardColor: Clr.grey2,
                       onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                const TestSupportServiceScreen1()));
                         // Handle button press
                       },
                     ),
@@ -225,6 +239,67 @@ class _SettingsTest1State extends State<SettingsTest1> {
                 ),
               ),
             ),
+
+            ElevatedCardButton3(
+              buttons: [
+                CustomElevatedButton(
+                  icon: Icons.settings,
+                  text: 'Button 1',
+                  iconColor: Colors.white,
+                  textColor: Colors.white,
+                  borderRadius: 12,
+                  buttonColor: Clr.grey2,
+                  onPressed: () {
+                    // Handle button press
+                  },
+                ),
+                CustomElevatedButton(
+                  icon: Icons.access_alarm,
+                  text: 'Button 2',
+                  iconColor: Colors.white,
+                  textColor: Colors.white,
+                  borderRadius: 12,
+                  buttonColor: Clr.grey2,
+                  onPressed: () {
+                    // Handle button press
+                  },
+                ),
+                CustomElevatedButton(
+                  icon: Icons.cloud,
+                  text: 'Button 3',
+                  iconColor: Colors.white,
+                  textColor: Colors.white,
+                  borderRadius: 12,
+                  buttonColor: Clr.grey2,
+                  onPressed: () {
+                    // Handle button press
+                  },
+                ),
+                CustomElevatedButton(
+                  icon: Icons.camera,
+                  text: 'Button 4',
+                  iconColor: Colors.white,
+                  textColor: Colors.white,
+                  borderRadius: 12,
+                  buttonColor: Clr.grey2,
+                  onPressed: () {
+                    // Handle button press
+                  },
+                ),
+                CustomElevatedButton(
+                  icon: Icons.favorite,
+                  text: 'Button 5',
+                  iconColor: Colors.white,
+                  textColor: Colors.white,
+                  borderRadius: 12,
+                  buttonColor: Clr.grey2,
+                  onPressed: () {
+                    // Handle button press
+                  },
+                ),
+              ],
+            ),
+
           ],
         ),
       ),
@@ -235,7 +310,7 @@ class _SettingsTest1State extends State<SettingsTest1> {
     return Container(
       width: MediaQuery.of(context).size.width * .6,
       padding: const EdgeInsets.all(15),
-      decoration: const BoxDecoration(color: Clr.white, borderRadius: BorderRadius.all(Radius.circular(12))),
+      decoration: const BoxDecoration(color: Clr.tealLite, borderRadius: BorderRadius.all(Radius.circular(12))),
       child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,

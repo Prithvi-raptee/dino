@@ -6,8 +6,8 @@ import 'package:dino/constant/app_font.dart';
 import 'package:dino/constant/clr.dart';
 
 // ignore: must_be_immutable
-class CustDrawerButton extends StatelessWidget {
-  CustDrawerButton(
+class CustomDrawerButtons extends StatelessWidget {
+  CustomDrawerButtons(
       {super.key,
       required this.title,
       required this.icon,

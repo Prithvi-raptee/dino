@@ -59,7 +59,7 @@ class AppDrawer extends StatelessWidget {
                     ),
                   ],
                 )),
-            CustDrawerButton(
+            CustomDrawerButtons(
               icon: SizedBox(
                   child: Image.asset(
                 Dir.profileIcon,
@@ -74,7 +74,7 @@ class AppDrawer extends StatelessWidget {
               },
               title: "Profile",
             ),
-            CustDrawerButton(
+            CustomDrawerButtons(
               icon: SizedBox(
                   child: Image.asset(
                 Dir.chargeIcon,
@@ -89,7 +89,7 @@ class AppDrawer extends StatelessWidget {
               },
               title: "Charging",
             ),
-            CustDrawerButton(
+            CustomDrawerButtons(
               icon: SizedBox(
                   child: Image.asset(
                 Dir.documentIcon,
@@ -104,7 +104,7 @@ class AppDrawer extends StatelessWidget {
               },
               title: "Document",
             ),
-            CustDrawerButton(
+            CustomDrawerButtons(
               icon: SizedBox(
                   child: Image.asset(
                 Dir.protectIcon,
@@ -114,7 +114,7 @@ class AppDrawer extends StatelessWidget {
               onPress: () {},
               title: "Warranty & Insurance",
             ),
-            CustDrawerButton(
+            CustomDrawerButtons(
               icon: SizedBox(
                   child: Image.asset(
                 Dir.paymentIcon,
@@ -124,7 +124,7 @@ class AppDrawer extends StatelessWidget {
               onPress: () {},
               title: "Payment",
             ),
-            CustDrawerButton(
+            CustomDrawerButtons(
               icon: SizedBox(
                   child: Image.asset(
                 Dir.chartIcon,
@@ -139,7 +139,7 @@ class AppDrawer extends StatelessWidget {
               },
               title: "Insight",
             ),
-            CustDrawerButton(
+            CustomDrawerButtons(
               icon: SizedBox(
                   child: Image.asset(
                 Dir.subscribeIcon,
@@ -149,7 +149,7 @@ class AppDrawer extends StatelessWidget {
               onPress: () {},
               title: "Subscription",
             ),
-            CustDrawerButton(
+            CustomDrawerButtons(
               icon: SizedBox(
                   child: Image.asset(
                 Dir.supportIcon,
@@ -164,7 +164,7 @@ class AppDrawer extends StatelessWidget {
               },
               title: "Support & Service",
             ),
-            CustDrawerButton(
+            CustomDrawerButtons(
               icon: SizedBox(
                   child: Image.asset(
                 Dir.exploreIcon,
@@ -174,7 +174,7 @@ class AppDrawer extends StatelessWidget {
               onPress: () {},
               title: "Explore",
             ),
-            CustDrawerButton(
+            CustomDrawerButtons(
               icon: SizedBox(
                   child: Image.asset(
                 Dir.settingIcon,

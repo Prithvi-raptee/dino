@@ -16,8 +16,8 @@ class ElevatedCardButton3 extends StatelessWidget {
         borderRadius: const BorderRadius.all(Radius.circular(15)),
         gradient: LinearGradient(
           colors: [
-            Clr.grey.withOpacity(0.5),
-            Clr.grey.withOpacity(0.1),
+            Clr.greybg202.withOpacity(0.9),
+            Clr.greybg202.withOpacity(0.5),
           ],
           begin: AlignmentDirectional.topCenter,
           end: AlignmentDirectional.bottomCenter,
@@ -94,29 +94,32 @@ class CustomElevatedButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: buttonColor,
-        elevation: 0.0, // Remove elevation to blend with the card
+        elevation: 5.0, // Remove elevation to blend with the card
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(borderRadius),
         ),
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            icon,
-            color: iconColor,
-            size: 30.0,
-          ),
-          const SizedBox(height: 8.0),
-          Text(
-            text,
-            style: TextStyle(
-              color: textColor,
-              fontSize: 16.0,
-              fontWeight: FontWeight.bold,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              icon,
+              color: iconColor,
+              size: 30.0,
             ),
-          ),
-        ],
+            const SizedBox(height: 8.0),
+            Text(
+              text,
+              style: TextStyle(
+                color: textColor,
+                fontSize: 16.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

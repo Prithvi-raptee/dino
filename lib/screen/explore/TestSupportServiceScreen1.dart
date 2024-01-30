@@ -1,26 +1,25 @@
-import 'package:dino/screen/explore/settingsTest1.dart';
 import 'package:flutter/material.dart';
 
 import '../../component/appbar.dart';
 import '../../component/elevatedCardButton.dart';
 import '../../component/elevatedCardButton2.dart';
-import '../../component/elevatedCardButton3.dart';
 import '../../component/style.dart';
 import '../../constant/clr.dart';
 
 import 'package:carousel_slider/carousel_slider.dart';
 
-class SettingsTest extends StatefulWidget {
-  const SettingsTest({super.key});
+class TestSupportServiceScreen1 extends StatefulWidget {
+  const TestSupportServiceScreen1({super.key});
 
   @override
-  State<SettingsTest> createState() => _SettingsTestState();
+  State<TestSupportServiceScreen1> createState() => _TestSupportServiceScreen1State();
 }
 
-class _SettingsTestState extends State<SettingsTest> {
+class _TestSupportServiceScreen1State extends State<TestSupportServiceScreen1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: appBar(context, "Support and Service"),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -55,7 +54,7 @@ class _SettingsTestState extends State<SettingsTest> {
                     ),
                     CarouselSlider.builder(
                         options: CarouselOptions(
-                            // enlargeCenterPage: true,
+                          // enlargeCenterPage: true,
                             pageSnapping: true,
                             aspectRatio: 18/9,
                             viewportFraction: 0.77,
@@ -68,7 +67,7 @@ class _SettingsTestState extends State<SettingsTest> {
                             enableInfiniteScroll: true),
                         itemCount: 3,
                         itemBuilder: (BuildContext context, int itemIndex,
-                                int pageViewIndex) =>
+                            int pageViewIndex) =>
                             serviceScheduleItem(context)),
                     Padding(
                       padding: const EdgeInsets.only(top: 5),
@@ -76,12 +75,12 @@ class _SettingsTestState extends State<SettingsTest> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: ["1", "2", "3"]
                             .map((e) => const Padding(
-                                  padding: EdgeInsets.all(5.0),
-                                  child: Icon(
-                                    Icons.circle,
-                                    size: 10,
-                                  ),
-                                ))
+                          padding: EdgeInsets.all(5.0),
+                          child: Icon(
+                            Icons.circle,
+                            size: 10,
+                          ),
+                        ))
                             .toList(),
                       ),
                     )
@@ -120,7 +119,7 @@ class _SettingsTestState extends State<SettingsTest> {
                             child: ElevatedCardButton(
                               icon: Icons.call,
                               text: 'Roadside Assistance',
-                              buttonColor: Clr.blue202,
+                              buttonColor: Clr.greybg202,
                               onPressed: () {
                                 // Handle button press
                               },
@@ -133,7 +132,7 @@ class _SettingsTestState extends State<SettingsTest> {
                             child: ElevatedCardButton(
                               icon: Icons.chat_outlined,
                               text: 'Live Support Chat',
-                              buttonColor: Clr.pink202,
+                              buttonColor: Clr.greybg202,
                               onPressed: () {
                                 // Handle button press
                               },
@@ -154,7 +153,7 @@ class _SettingsTestState extends State<SettingsTest> {
                             child: ElevatedCardButton(
                               icon: Icons.settings,
                               text: 'Schedule Service',
-                              buttonColor: Clr.purple202,
+                              buttonColor: Clr.greybg202,
                               onPressed: () {
                                 // Handle button press
                               },
@@ -167,7 +166,7 @@ class _SettingsTestState extends State<SettingsTest> {
                             child: ElevatedCardButton(
                               icon: Icons.call,
                               text: 'Call Support',
-                              buttonColor: Clr.green,
+                              buttonColor: Clr.greybg202,
                               onPressed: () {
                                 // Handle button press
                               },
@@ -219,11 +218,6 @@ class _SettingsTestState extends State<SettingsTest> {
                       textColor: Clr.white,
                       cardColor: Clr.greybg202,
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                const SettingsTest1()));
                         // Handle button press
                       },
                     ),
@@ -231,67 +225,6 @@ class _SettingsTestState extends State<SettingsTest> {
                 ),
               ),
             ),
-
-            ElevatedCardButton3(
-              buttons: [
-                CustomElevatedButton(
-                  icon: Icons.settings,
-                  text: 'Button 1',
-                  iconColor: Colors.white,
-                  textColor: Colors.white,
-                  borderRadius: 12,
-                  buttonColor: Clr.grey,
-                  onPressed: () {
-                    // Handle button press
-                  },
-                ),
-                CustomElevatedButton(
-                  icon: Icons.access_alarm,
-                  text: 'Button 2',
-                  iconColor: Colors.white,
-                  textColor: Colors.white,
-                  borderRadius: 12,
-                  buttonColor: Clr.grey,
-                  onPressed: () {
-                    // Handle button press
-                  },
-                ),
-                CustomElevatedButton(
-                  icon: Icons.cloud,
-                  text: 'Button 3',
-                  iconColor: Colors.white,
-                  textColor: Colors.white,
-                  borderRadius: 12,
-                  buttonColor: Clr.grey,
-                  onPressed: () {
-                    // Handle button press
-                  },
-                ),
-                CustomElevatedButton(
-                  icon: Icons.camera,
-                  text: 'Button 4',
-                  iconColor: Colors.white,
-                  textColor: Colors.white,
-                  borderRadius: 12,
-                  buttonColor: Clr.grey,
-                  onPressed: () {
-                    // Handle button press
-                  },
-                ),
-                CustomElevatedButton(
-                  icon: Icons.favorite,
-                  text: 'Button 5',
-                  iconColor: Colors.white,
-                  textColor: Colors.white,
-                  borderRadius: 12,
-                  buttonColor: Clr.grey,
-                  onPressed: () {
-                    // Handle button press
-                  },
-                ),
-              ],
-            ),
-
           ],
         ),
       ),
@@ -302,7 +235,7 @@ class _SettingsTestState extends State<SettingsTest> {
     return Container(
       width: MediaQuery.of(context).size.width * .6,
       padding: const EdgeInsets.all(15),
-      decoration: const BoxDecoration(color: Clr.tealLite, borderRadius: BorderRadius.all(Radius.circular(12))),
+      decoration: const BoxDecoration(color: Clr.white, borderRadius: BorderRadius.all(Radius.circular(12))),
       child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,5 +1,5 @@
 import 'package:dino/component/appbar.dart';
-import 'package:dino/screen/explore/settingsTest.dart';
+import 'package:dino/screen/explore/TestSupportServiceScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +23,7 @@ class _ExploreLandingPageNavigationState extends State<ExploreLandingPageNavigat
   static final List<Widget> _widgetOptions = <Widget>[
     const ExploreLandingPage(),
     const SupportAndServiceScreen(),
-    const SettingsTest()
+    const TestSupportServiceScreen()
   ];
 
   @override

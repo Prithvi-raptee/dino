@@ -23,7 +23,7 @@ class SettingScreen extends StatelessWidget {
       backgroundColor: Clr.black,
       appBar: appBar(context, "Settings"),
       body: Column(children: [
-        CustDrawerButton(
+        CustomDrawerButtons(
             title: "Controls",
             icon: const ImageIcon(AssetImage(Dir.controlIcon)),
             onPress: () {
@@ -32,7 +32,7 @@ class SettingScreen extends StatelessWidget {
                   MaterialPageRoute(
                       builder: (context) => const ControlScreen()));
             }),
-        CustDrawerButton(
+        CustomDrawerButtons(
             title: "Notifications",
             icon: const ImageIcon(AssetImage(Dir.notificationIcon)),
             onPress: () {
@@ -41,7 +41,7 @@ class SettingScreen extends StatelessWidget {
                   MaterialPageRoute(
                       builder: (context) => const NotificationSettingScreen()));
             }),
-        CustDrawerButton(
+        CustomDrawerButtons(
             title: "Permissions",
             icon: const ImageIcon(AssetImage(Dir.permissionIcon)),
             onPress: () {
@@ -50,7 +50,7 @@ class SettingScreen extends StatelessWidget {
                   MaterialPageRoute(
                       builder: (context) => const PermissionScreen()));
             }),
-        CustDrawerButton(
+        CustomDrawerButtons(
             title: "OTA Updates",
             icon: const ImageIcon(AssetImage(Dir.updateIcon)),
             onPress: () {
@@ -59,7 +59,7 @@ class SettingScreen extends StatelessWidget {
                   MaterialPageRoute(
                       builder: (context) => const OTAUpadateScreen()));
             }),
-        CustDrawerButton(
+        CustomDrawerButtons(
             title: "Incognito",
             icon: const ImageIcon(AssetImage(Dir.incognitoIcon)),
             onPress: () {
@@ -68,7 +68,7 @@ class SettingScreen extends StatelessWidget {
                   MaterialPageRoute(
                       builder: (context) => const IcognitoSettingScreen()));
             }),
-        CustDrawerButton(
+        CustomDrawerButtons(
             title: "Security",
             icon: const ImageIcon(AssetImage(Dir.protectIcon)),
             onPress: () {
@@ -77,7 +77,7 @@ class SettingScreen extends StatelessWidget {
                   MaterialPageRoute(
                       builder: (context) => const SecuritySettingScreen()));
             }),
-        CustDrawerButton(
+        CustomDrawerButtons(
             title: "Bluetooth",
             icon: const Icon(Icons.bluetooth),
             onPress: () {
@@ -86,7 +86,7 @@ class SettingScreen extends StatelessWidget {
                   MaterialPageRoute(
                       builder: (context) => const BluetoothSettingScreen()));
             }),
-        CustDrawerButton(
+        CustomDrawerButtons(
             title: "Personalization",
             icon: const ImageIcon(AssetImage(Dir.personalizionIcon)),
             onPress: () {
@@ -95,7 +95,7 @@ class SettingScreen extends StatelessWidget {
                   MaterialPageRoute(
                       builder: (context) => const PersonalizationScreen()));
             }),
-        CustDrawerButton(
+        CustomDrawerButtons(
             title: "About",
             icon: const Icon(Icons.info_outline),
             onPress: () {
